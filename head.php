@@ -56,7 +56,7 @@ if ( ! function_exists( 'wp_theme_head' ) ) {
             echo '<!-- meta tag author not valid -->';
         }
 
-        if($robots){
+        if($robots==="true"){
             echo '<meta name="robots" content="index,follow">';
         } else {
             echo '<meta name="robots" content="noindex,nofollow">';

@@ -29,21 +29,12 @@ function mio_plugin_mostra_metabox( $post ) {
     $robots_raw = $post_id ? get_post_meta( $post_id, '_meta_robots', true ) : '';
 
     $og_type = $post_id ? get_post_meta( $post_id, '_meta_og_type', true ) : '';
-    $og_title = $post_id ? get_post_meta( $post_id, '_meta_og_title', true ) : '';
-    $og_description = $post_id ? get_post_meta( $post_id, '_meta_og_description', true ) : '';
     $og_image = $post_id ? get_post_meta( $post_id, '_meta_og_image', true ) : '';
 
     $twitter_card = $post_id ? get_post_meta( $post_id, '_meta_twitter_card', true ) : '';
-    $twitter_title = $post_id ? get_post_meta( $post_id, '_meta_twitter_title', true ) : '';
-    $twitter_description = $post_id ? get_post_meta( $post_id, '_meta_twitter_description', true ) : '';
+    
 
     $personal_tag = $post_id ? get_post_meta( $post_id, '_meta_personal_tag', true ) : '';
-
-    // Parsifica robots in due variabili per i radio
-    $robots_norm = trim( strtolower( (string) $robots_raw ) );
-    $tokens = $robots_norm === '' ? array() : array_map( 'trim', explode( ',', $robots_norm ) );
-    $robots_index = in_array( 'noindex', $tokens, true ) ? 'noindex' : ( in_array( 'index', $tokens, true ) ? 'index' : '' );
-    $robots_follow = in_array( 'nofollow', $tokens, true ) ? 'nofollow' : ( in_array( 'follow', $tokens, true ) ? 'follow' : '' );
 
     // campi HTML (nota: non mettere <form> dentro il metabox: l'edit form principale gestisce l'invio)
     ?>
@@ -81,8 +72,8 @@ function mio_plugin_mostra_metabox( $post ) {
       <p><strong>ROBOTS</strong></p>
       <fieldset>
         <legend>Index</legend>
-        <label><input type="radio" name="robots_index_value" value="true" <?php checked( $robots_index, true ); ?> /> index</label>
-        <label><input type="radio" name="robots_index_value" value="false" <?php checked( $robots_index, false ); ?> /> noindex</label>
+        <label><input type="radio" name="robots_index_value" value="true" <?php checked( $robots_raw, true ); ?> /> index</label>
+        <label><input type="radio" name="robots_index_value" value="false" <?php checked( $robots_raw, false ); ?> /> noindex</label>
       </fieldset>
 
 
