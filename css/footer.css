@@ -1,0 +1,130 @@
+#footer{
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    background-color: var(--background-color, black);
+
+    padding:16px 20px;
+    min-height:60px;
+
+}
+#footer a{
+    color: var(--link-color);
+    text-decoration: none;
+}
+#footer a:hover{
+    color: var(--link-hover-color);
+    text-decoration: none;
+}
+
+
+/* FOOTER COLUMN */
+#footer_column_1{
+
+    flex:var(--footer-column-1-size, 1);
+    
+}
+#footer_column_2{
+    
+    flex:var(--footer-column-2-size, 1);
+    
+}
+#footer_column_3{
+    
+    flex:var(--footer-column-3-size, 1);
+
+}
+#footer_column_4{
+    
+    flex:var(--footer-column-4-size, 1);
+
+}
+
+
+/* MAPS */
+#footer .maps_container{
+    display: flex;
+    justify-content: var(--maps-container-justify-align,center);
+}
+
+
+/* TEXT-HTML */
+#footer .text_html_container{
+    display: flex;
+    justify-content: var(--text-container-justify-align,center);
+}
+#footer .text{
+    color: var(--link-color,white);
+}
+
+
+/* ADDRESS */
+#footer .address_container{
+    display: flex;
+    justify-content: var(--address-container-justify-align,center);
+}
+#footer .address{
+    color:var(--link-color,white)
+}
+
+/* NAVBAR */
+#footer .navbar_container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: var(--navbar-container-justify-align,center);
+    gap: 10px;
+}
+#footer .navbar_heading{
+    color: var(--link-color,white)
+}
+#footer .single_navbar_container_1{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: var(--footer-navbar-align-items,center);
+}
+#footer .single_navbar_container_2{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: var(--footer-navbar-align-items,center);
+}
+#footer .single_navbar_container_3{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: var(--footer-navbar-align-items,center);
+}
+#footer ul{
+  list-style: none;
+  padding:0px;
+  margin:0px;
+}
+
+
+/* social icons */
+.social_icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: var(--socials-icons-container-justify-align, center);
+    font-size: 25px;
+    text-decoration: none;
+}
+.social_icons a{
+    margin: 5px;
+}
+.social_icons span{
+    position: absolute;
+    z-index: -10;
+    font-size: 1px;
+}
+
+/* LOGO */
+.logo_cotainer{
+    display: flex;
+    justify-content: var(--logo-container-justify-align,center);
+}
