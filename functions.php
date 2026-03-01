@@ -7,6 +7,7 @@
 
     define( 'PAGE_EDIT', plugin_dir_path( __FILE__ ) . '/page_edit' );
     require_once PAGE_EDIT . '/metabox.php';
+    require_once PAGE_EDIT . '/remove-title-form.php';
 
 
     define( 'SMI_INCLUDES', plugin_dir_path( __FILE__ ) . '/customize' );
