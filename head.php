@@ -133,20 +133,6 @@ if ( ! function_exists( 'wp_theme_head' ) ) {
         ';
 
         echo '
-            <link rel="preload" href="' . esc_url( get_stylesheet_directory_uri() . '/css/container.css' ) . '" as="style" onload="this.rel=\'stylesheet\'">
-            <noscript>
-                <link rel="stylesheet" href="' . esc_url( get_stylesheet_directory_uri() . '/css/container.css' ) . '">
-            </noscript>
-        ';
-
-        echo '
-            <link rel="preload" href="' . esc_url( get_stylesheet_directory_uri() . '/css/HeroSection.css' ) . '" as="style" onload="this.rel=\'stylesheet\'">
-            <noscript>
-                <link rel="stylesheet" href="' . esc_url( get_stylesheet_directory_uri() . '/css/HeroSection.css' ) . '">
-            </noscript>
-        ';
-
-        echo '
             <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.rel=\'stylesheet\'">
             <noscript>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">

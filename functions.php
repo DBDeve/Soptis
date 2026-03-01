@@ -1,6 +1,5 @@
 <?php
 
-
     define( 'HEAD', plugin_dir_path( __FILE__ ) );
     require_once HEAD . '/head.php';
 
