@@ -41,18 +41,4 @@
         'choices'  => $allowed_justify_content
     ) );
 
-
-    // setting (URL immagine)
-    $wp_customize->add_setting( 'header_image_url', array(
-        'default'           => '',
-        'sanitize_callback' => 'esc_url_raw',
-        'transport'         => 'refresh',
-    ) );
-    // control immagine (mostra uploader)
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'header_image_url_control', array(
-        'label'    => __( 'Header image', 'textdomain' ),
-        'section'  => 'header_site_icon',
-        'settings' => 'header_image_url',
-    ) ) );
-
 ?>
