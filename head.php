@@ -88,13 +88,9 @@ if ( ! function_exists( 'wp_theme_head' ) ) {
         }
 
         echo '<meta property="og:url" content="'.esc_attr( $url_page ).'">';
-
-        if($twitter_card){
-            echo '<meta name="twitter:card" content="'. esc_attr( $twitter_card ) .'">';
-        } else {
-            echo '<!-- meta tag twitter:card not valid-->';
-        }
-
+        
+        echo '<meta name="twitter:card" content="summary_large_image">';
+        
         echo '<meta name="twitter:title" content="' . esc_attr( $twitter_title ) . '">';
 
         echo '<meta name="twitter:description" content="' . esc_attr( $twitter_description ) . '">';

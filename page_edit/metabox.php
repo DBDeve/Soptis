@@ -87,15 +87,6 @@ function mio_plugin_mostra_metabox( $post ) {
       </fieldset>
 
       <br>
-      <p><strong> TWITTER </strong></p>
-
-      <fieldset>
-        <legend> twitter card </legend>
-        <label><input type="radio" name="twitter_card_value" value="summary" <?php checked( $twitter_card, 'summary' ); ?> /> summary </label>
-        <label><input type="radio" name="twitter_card_value" value="summary_large_image" <?php checked( $twitter_card, 'summary_large_image' ); ?> /> summary large image </label>
-        <label><input type="radio" name="twitter_card_value" value="app" <?php checked( $twitter_card, 'app' ); ?> /> app </label>
-        <label><input type="radio" name="twitter_card_value" value="player" <?php checked( $twitter_card, 'player' ); ?> /> player </label>
-      </fieldset>
 
       <p><strong> PERSONAL TAG </strong></p>
       <p>
@@ -170,10 +161,6 @@ function mio_plugin_salva_metabox( $post_id ) {
     } else {
         delete_post_meta( $post_id, '_meta_og_type' );
     }
-
-
-    if ( isset( $_POST['twitter_card_value'] ) ) { $allowed = [ 'summary', 'summary_large_image', 'app', 'player' ]; $val = sanitize_text_field( wp_unslash( $_POST['twitter_card_value'] ) ); if ( in_array( $val, $allowed, true ) ) { update_post_meta( $post_id, '_meta_twitter_card', $val ); } } else { delete_post_meta( $post_id, '_meta_twitter_card' ); }
-
 
     
     if ( isset( $_POST['personal_tag'] ) ) {
