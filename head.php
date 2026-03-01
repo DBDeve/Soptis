@@ -128,10 +128,11 @@ if ( ! function_exists( 'wp_theme_head' ) ) {
             </noscript>
         ';
 
+        //// scaricare il pacchetto e installarlo
         echo '
-            <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.rel=\'stylesheet\'">
+            <link rel="preload" href="' . esc_url( get_stylesheet_directory_uri() . '/css/fontAwesome/css/all.min.css' ) . '" as="style" onload="this.rel=\'stylesheet\'">
             <noscript>
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+                <link rel="stylesheet" href="' . esc_url( get_stylesheet_directory_uri() . '/css/fontAwesome/css/all.min.css' ) . '">
             </noscript>
         ';
 
