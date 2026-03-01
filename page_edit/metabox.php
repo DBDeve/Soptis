@@ -179,30 +179,6 @@ add_action('admin_footer', function() {
         <script>
             jQuery(function($){
 
-                let frame;
-
-                $('#open-media').on('click', function(e){
-                    e.preventDefault();
-
-                    frame = wp.media({
-                        title: 'Seleziona immagine',
-                        multiple: false
-                    });
-
-                    frame.on('select', function(){
-                        let attachment = frame.state().get('selection').first().toJSON();
-                        $('#image-url').val(attachment.url);
-                    });
-
-                    frame.open();
-                });
-
-            });
-        </script>
-
-        <script>
-            jQuery(function($){
-
                 const min = 50;
                 const max = 155;
 
@@ -221,6 +197,39 @@ add_action('admin_footer', function() {
                     else if (length > max) {
                         msg.css('color', 'red');
                         msg.text("La descrizione non deve superare " + max + " caratteri (" + length + " attuali).");
+                    } 
+                    else {
+                        msg.css('color', 'green');
+                        msg.text("Lunghezza corretta (" + length + " caratteri).");
+                    }
+
+                });
+
+            });
+
+        </script>
+
+        <script>
+            jQuery(function($){
+
+                const min = 50;
+                const max = 65;
+
+                // Creo un elemento per mostrare il messaggio
+                let msg = $('<p id="descrizione_seo_msg" style="margin-top:5px;"></p>');
+                $('#title_seo').after(msg);
+
+                $('#title_seo').on('input', function(){
+
+                    let length = $(this).val().length;
+
+                    if (length < min) {
+                        msg.css('color', 'red');
+                        msg.text("il titolo deve essere almeno di " + min + " caratteri (" + length + " attuali).");
+                    } 
+                    else if (length > max) {
+                        msg.css('color', 'red');
+                        msg.text("il titolo non deve superare " + max + " caratteri (" + length + " attuali).");
                     } 
                     else {
                         msg.css('color', 'green');
