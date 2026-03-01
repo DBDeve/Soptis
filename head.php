@@ -129,13 +129,6 @@ if ( ! function_exists( 'wp_theme_head' ) ) {
         ';
 
         echo '
-            <link rel="preload" href="' . esc_url( get_stylesheet_directory_uri() . '/css/styles.css' ) . '" as="style" onload="this.rel=\'stylesheet\'">
-            <noscript>
-                <link rel="stylesheet" href="' . esc_url( get_stylesheet_directory_uri() . '/css/styles.css' ) . '">
-            </noscript>
-        ';
-
-        echo '
             <link rel="preload" href="' . esc_url( get_stylesheet_directory_uri() . '/css/fontAwesome/css/all.min.css' ) . '" as="style" onload="this.rel=\'stylesheet\'">
             <noscript>
                 <link rel="stylesheet" href="' . esc_url( get_stylesheet_directory_uri() . '/css/fontAwesome/css/all.min.css' ) . '">
