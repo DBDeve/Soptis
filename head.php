@@ -19,7 +19,6 @@ if ( ! function_exists( 'wp_theme_head' ) ) {
 
         $og_type = $post_id ? get_post_meta( $post_id, '_meta_og_type', true ) : '';
         $og_description = $description? $description : '';
-        $og_image = $post_id ? get_post_meta( $post_id, '_meta_og_image', true ) : '';
 
         $twitter_card = $post_id ? get_post_meta( $post_id, '_meta_twitter_card', true ) : '';
         $twitter_description = $description? $description  : '';
@@ -80,8 +79,9 @@ if ( ! function_exists( 'wp_theme_head' ) ) {
             echo '<!-- meta tag og:description not valid-->';
         }
 
-        if($og_image){
-            echo '<meta property="og:image" content="'. $og_image .'">'; 
+
+        if(get_site_icon_url()){
+            echo '<meta property="og:image" content="'. get_site_icon_url() .'">'; 
         } else {
             $img_url = get_template_directory_uri() . '/image/deafult_Image.webp';
             echo '<meta property="og:image" content="'. $img_url .'">';

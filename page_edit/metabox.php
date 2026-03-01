@@ -86,11 +86,6 @@ function mio_plugin_mostra_metabox( $post ) {
         <label><input type="radio" name="social_type_value" value="article" <?php checked( $og_type, 'article' ); ?> /> article</label>
       </fieldset>
 
-      <p>
-        <button type="button" class="button" id="open-media">Apri Media Library</button>
-        <label><input type="text" id="image-url" name="image-url" style="width:100%;" value="<?php echo esc_attr( $og_image ); ?>"></labal>
-      </p>
-
       <br>
       <p><strong> TWITTER </strong></p>
 
@@ -174,14 +169,6 @@ function mio_plugin_salva_metabox( $post_id ) {
         
     } else {
         delete_post_meta( $post_id, '_meta_og_type' );
-    }
-
-
-    if ( isset( $_POST['image-url'] ) ) {
-        $val = sanitize_textarea_field( wp_unslash( $_POST['image-url'] ) );
-        update_post_meta( $post_id, '_meta_og_image', $val );
-    } else {
-        delete_post_meta( $post_id, '_meta_og_image' );
     }
 
 
