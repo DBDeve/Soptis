@@ -26,7 +26,6 @@ function mio_plugin_mostra_metabox( $post ) {
     }
     $description = $post_id ? get_post_meta( $post_id, '_meta_description', true ) : '';
     $author = $post_id ? get_post_meta( $post_id, '_meta_author', true ) : '';
-    $robots_raw = $post_id ? get_post_meta( $post_id, '_meta_robots', true ) : '';
 
     $og_type = $post_id ? get_post_meta( $post_id, '_meta_og_type', true ) : '';
     $og_image = $post_id ? get_post_meta( $post_id, '_meta_og_image', true ) : '';
@@ -144,14 +143,6 @@ function mio_plugin_salva_metabox( $post_id ) {
         update_post_meta( $post_id, '_meta_author', $val );
     } else {
         delete_post_meta( $post_id, '_meta_author' );
-    }
-
-    // author
-    if ( isset( $_POST['robots_index_value'] ) ) {
-        $val = sanitize_text_field( wp_unslash( $_POST['robots_index_value'] ) );
-        update_post_meta( $post_id, '_meta_robots', $val );
-    } else {
-        delete_post_meta( $post_id, '_meta_robots' );
     }
 
     if ( isset( $_POST['social_type_value'] ) ) {

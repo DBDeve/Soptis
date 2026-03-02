@@ -15,7 +15,6 @@ if ( ! function_exists( 'wp_theme_head' ) ) {
 
         $description = $post_id ? get_post_meta( $post_id, '_meta_description', true ) : '';
         $author = $post_id ? get_post_meta( $post_id, '_meta_author', true ) : '';
-        $robots = $post_id ? get_post_meta( $post_id, '_meta_robots', true ) : '';
 
         $og_type = $post_id ? get_post_meta( $post_id, '_meta_og_type', true ) : '';
         $og_description = $description? $description : '';
@@ -53,12 +52,6 @@ if ( ! function_exists( 'wp_theme_head' ) ) {
             echo '<meta name="author" content="' . esc_attr( $author ) . '">';
         } else {
             echo '<!-- meta tag author not valid -->';
-        }
-
-        if($robots==="true"){
-            echo '<meta name="robots" content="index,follow">';
-        } else {
-            echo '<meta name="robots" content="noindex,nofollow">';
         }
 
         if($og_type){
@@ -103,7 +96,6 @@ if ( ! function_exists( 'wp_theme_head' ) ) {
 
 
         echo '<!-- link tag -->';
-        echo '<link rel="canonical" href='.esc_attr( $url_page ).'>';
         echo '<link rel="apple-touch-icon" href="' . esc_url( get_stylesheet_directory_uri() . '/image/deafult_Image.webp' ) . '">';
         echo '<!-- link tag stylesheet-->';
 
