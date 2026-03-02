@@ -43,6 +43,7 @@
             // checkbox setting
             $wp_customize->add_setting( "footer_column_{$i}_social_{$handle}_enable", array(
                 'default'           => '',
+                'sanitize_callback' => 'rest_sanitize_boolean',
                 'transport'         => 'refresh',
             ) );
             $wp_customize->add_control( "footer_column_{$i}_social_{$handle}_enable_control", array(
@@ -56,6 +57,7 @@
             // url setting
             $wp_customize->add_setting( "footer_column_{$i}_social_{$handle}_url", array(
                 'default'           => '',
+                'sanitize_callback' => 'esc_url_raw',
                 'transport'         => 'refresh',
             ) );
             $wp_customize->add_control( "footer_column_{$i}_social_{$handle}_url_control", array(

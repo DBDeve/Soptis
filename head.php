@@ -34,12 +34,10 @@ if ( ! function_exists( 'wp_theme_head' ) ) {
             $og_title = $title? $title : '';
             $twitter_title = $title? $title : '';
             $site_tagline = get_bloginfo( 'description' );
-            echo '<title>' . esc_html( $title ) . ' - ' . esc_html( $site_tagline ) . '</title>';
         } else {
             $title = $post_id ? get_post_meta( $post_id, '_title_seo', true ) : '';
             $og_title = $title? $title : '';
             $twitter_title = $title? $title : '';
-            echo '<title>' . esc_html( $title ) . '</title>';
         }
 
         if ( $description ) {

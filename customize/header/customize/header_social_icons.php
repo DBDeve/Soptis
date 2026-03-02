@@ -46,6 +46,7 @@
         // checkbox setting
         $wp_customize->add_setting( "social_{$handle}_enable", array(
         'default'           => '',
+        'sanitize_callback' => 'rest_sanitize_boolean',
         'transport'         => 'refresh',
         ) );
 
@@ -59,6 +60,7 @@
         // url setting
         $wp_customize->add_setting( "social_{$handle}_url", array(
         'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
         'transport'         => 'refresh',
         ) );
 
