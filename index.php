@@ -21,7 +21,10 @@
                 </main>
             <?php endwhile; ?>
         <?php else : ?>
-            <p>Contenuto non trovato.</p>
+            <?php
+                // Carica il template 404.php del tema
+                get_template_part( '404' );
+            ?>
         <?php endif; ?>
     
 
