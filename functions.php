@@ -44,4 +44,7 @@
     require_once SMI_INCLUDES . '/footer/wp_theme_footer.php';
     require_once SMI_INCLUDES . '/header/wp_theme_header.php';
 
+    define( 'CUSTOM_BLOCKS', plugin_dir_path( __FILE__ ) . '/custom_core_blocks' );
+    require_once CUSTOM_BLOCKS . '/custom.php';
+
 ?>

@@ -5,3 +5,11 @@
     margin: 0;
     padding: 0;
 }
+
+.block-margin{
+    margin: var(--block-margin) !important;
+}
+
+.block-padding{
+    padding: var(--block-padding) !important;
+}

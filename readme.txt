@@ -14,5 +14,10 @@ Tema per la creazione di siti web statici ottimizato per la SEO.
 = 1.0.0 =
 * Prima release.
 
+= 1.1.0 =
+* added file 404.PHP with style.
+* restyle editor wordpress.
+* added margin and padding to design native blocks
+
 == Credits ==
 Font, immagini, script e relative licenze.
