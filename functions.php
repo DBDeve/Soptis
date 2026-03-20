@@ -29,6 +29,44 @@
     });
 
 
+    function mytheme_enqueue_assets() {
+        wp_enqueue_style(
+            'mytheme-body',
+            get_template_directory_uri() . '/css/body.min.css',
+            array(),
+            '1.0'
+        );
+        wp_enqueue_style(
+            'mytheme-footer',
+            get_template_directory_uri() . '/css/footer.min.css',
+            array(),
+            '1.0'
+        );
+        wp_enqueue_style(
+            'mytheme-header',
+            get_template_directory_uri() . '/css/header.min.css',
+            array(),
+            '1.0'
+        );
+        wp_enqueue_style(
+            'mytheme-font',
+            get_template_directory_uri() . '/css/fontAwesome/css/all.min.css',
+            array(),
+            '1.0'
+        );
+
+        wp_enqueue_script(
+            'mytheme-script',
+            get_template_directory_uri() . '/js/mobileMenu.min.js',
+            array(),
+            '1.0',
+            true
+        );
+    }
+    add_action('wp_enqueue_scripts', 'mytheme_enqueue_assets');
+
+
+
 
     define( 'HEAD', plugin_dir_path( __FILE__ ) );
     require_once HEAD . '/head.php';

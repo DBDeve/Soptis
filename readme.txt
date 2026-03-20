@@ -19,5 +19,8 @@ Tema per la creazione di siti web statici ottimizato per la SEO.
 * restyle editor wordpress.
 * added margin and padding to design native blocks
 
+= 1.1.1 =
+* fixed bug
+
 == Credits ==
 Font, immagini, script e relative licenze.
