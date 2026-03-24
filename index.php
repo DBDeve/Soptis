@@ -13,7 +13,7 @@
 
         <?php if ( have_posts() ) : ?>
             <?php while ( have_posts() ) : the_post(); ?>
-                <main id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                <main id="post-content" <?php post_class(); ?>>
 
                     <?php the_content(); ?>
                     <?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'soptis' ), 'after' => '</div>', ) ); ?>

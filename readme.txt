@@ -1,14 +1,14 @@
 === Soptis ===
 Contributors: Dario
 Requires at least: 6.0
-Tested up to: 6.9
-Requires PHP: 7.4
+Tested up to: 6.9.4
+Requires PHP: 8.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: custom-footer, custom-header, custom-head
 
 == Description ==
-Tema per la creazione di siti web statici ottimizato per la SEO.
+SEO-optimized theme for creating static websites.
 
 == Changelog ==
 = 1.0.0 =
@@ -17,10 +17,21 @@ Tema per la creazione di siti web statici ottimizato per la SEO.
 = 1.1.0 =
 * added file 404.PHP with style.
 * restyle editor wordpress.
-* added margin and padding to design native blocks
 
 = 1.1.1 =
 * fixed bug
 
+= 1.1.2 =
+* fixed bug
+
 == Credits ==
 Font, immagini, script e relative licenze.
+
+== Third-Party Resources ==
+Font Awesome Free
+Source: https://fontawesome.com
+License: 
+- Icons: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+- Fonts: SIL OFL 1.1 (https://openfontlicense.org/)
+- Code: MIT License (https://opensource.org/licenses/MIT)
+
