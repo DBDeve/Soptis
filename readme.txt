@@ -14,16 +14,6 @@ SEO-optimized theme for creating static websites.
 = 1.0.0 =
 * Prima release.
 
-= 1.1.0 =
-* added file 404.PHP with style.
-* restyle editor wordpress.
-
-= 1.1.1 =
-* fixed bug
-
-= 1.1.2 =
-* fixed bug
-
 == Credits ==
 Font, immagini, script e relative licenze.
 
