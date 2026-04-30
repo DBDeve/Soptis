@@ -4,7 +4,7 @@
 
 if ( ! function_exists( 'wp_theme_head' ) ) {
 
-    function get_head() {
+    function soptis_get_head() {
 
         $url_page = get_permalink();
         $post_id = url_to_postid( $url_page ); 

@@ -24,7 +24,9 @@
   flex: var(--header-heading-size,1);
   margin:0;
   color: var(--header-link-color, black);
-  text-align: var(--header-heading-align, center);
+
+  display: flex;
+  justify-content: var(--header-heading-align, center);
   font-size: var(--header-font-size, 20px); 
 }
 
@@ -32,7 +34,8 @@
 /* SOCIAL ICONS */
 #header #header_social_icons{
   flex: var(--header-social-icons-size,1);
-  text-align: var(--header-social-icons-align, center);
+  display: flex;
+  justify-content: var(--header-social-icons-align, center);
 }
 #header #header_social_icons a{
   font-size: 25px;
@@ -53,14 +56,16 @@
 /* LOGO */
 #header #header_logo{
   flex: var(--header-logo-size,1);
-  text-align: var(--header-logo-align, center);
+  display: flex;
+  justify-content: var(--header-logo-align, center);
 }
 
 
 /* navbar */
 #header #header_navbar{
     flex: var(--header-navbar-size,3);
-    text-align: var(--header-navbar-align, flex-start);
+    display: flex;
+    justify-content: var(--header-navbar-align, flex-start);
     list-style: none;
     padding:0px;
     margin:0px;

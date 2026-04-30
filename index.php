@@ -4,7 +4,7 @@
         <!-- meta_tag -->
         <meta charset="<?php bloginfo('charset'); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <?php get_head(); ?>
+        <?php soptis_get_head(); ?>
         <!-- wp_head() tag -->
         <?php wp_head(); ?>
     </head>

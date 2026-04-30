@@ -2,28 +2,28 @@
 
     for($i = 1; $i <= 4; $i++){
         ////////////////////////// NAVBAR CONTENT ///////////////////////////////
-        $wp_customize->add_setting( "footer_column_{$i}_navbar", array(
+        $wp_customize->add_setting( "soptis_footer_column_{$i}_navbar", array(
         'default'           => false,
         'sanitize_callback' => 'rest_sanitize_boolean',
         'transport'         => 'refresh',
         ));
-        $wp_customize->add_control( "footer_column_{$i}_navbar_control", array(
+        $wp_customize->add_control( "soptis_footer_column_{$i}_navbar_control", array(
             'label'    => "column {$i} navbar",
             'section'  => "tema_footer_column_{$i}",
-            'settings' => "footer_column_{$i}_navbar",
+            'settings' => "soptis_footer_column_{$i}_navbar",
             'type'     => 'checkbox',
         ) );
 
         // numero navbar footer
-        $wp_customize->add_setting( "footer_column_{$i}_navbar_number", array(
+        $wp_customize->add_setting( "soptis_footer_column_{$i}_navbar_number", array(
             'default'           => 1,
             'sanitize_callback' => 'absint',
             'transport'         => 'refresh',
         ));
-        $wp_customize->add_control( "footer_column_{$i}_navbar_number_control", array(
+        $wp_customize->add_control( "soptis_footer_column_{$i}_navbar_number_control", array(
             'label'       => 'Numero navbar footer',
             'section'     => "tema_footer_column_{$i}",
-            'settings'    => "footer_column_{$i}_navbar_number", // deve corrispondere allo setting
+            'settings'    => "soptis_footer_column_{$i}_navbar_number", // deve corrispondere allo setting
             'type'        => 'range',
             'input_attrs' => array(
                 'min'  => 1,
@@ -40,44 +40,44 @@
                 'center'      => 'center',
                 'flex-end'    => 'end',
             );
-            $wp_customize->add_setting( "footer_column_{$i}_navbar_number_{$y}_align", array(
+            $wp_customize->add_setting( "soptis_footer_column_{$i}_navbar_number_{$y}_align", array(
                 'default'           => 'center',
                 'sanitize_callback' => function( $value ) use ( $allowed_footer_navbar_align) {
                     return array_key_exists( $value, $allowed_footer_navbar_align ) ? $value : 'no_align';
                 },
                 'transport' => 'refresh',
             ) );
-            $wp_customize->add_control( "footer_column_{$i}_navbar_number_{$y}_align_control", array(
+            $wp_customize->add_control( "soptis_footer_column_{$i}_navbar_number_{$y}_align_control", array(
                 'label'    => " navbar align",
                 'section'  => "tema_footer_column_{$i}",
-                'settings' => "footer_column_{$i}_navbar_number_{$y}_align",
+                'settings' => "soptis_footer_column_{$i}_navbar_number_{$y}_align",
                 'type'     => 'select',
                 'choices'  => $allowed_footer_navbar_align,
                 'active_callback' => function() use ( $i,$y ) { return show_navbar( $i, $y ); },
             ) );
 
-            $wp_customize->add_setting( "footer_column_{$i}_navbar_number_{$y}_title", array(
+            $wp_customize->add_setting( "soptis_footer_column_{$i}_navbar_number_{$y}_title", array(
             'default'           => 'inserisci titolo',
             'sanitize_callback' => 'wp_kses_post',
             'transport'         => 'refresh',
             ));
-            $wp_customize->add_control( "footer_column_{$i}_navbar_number_{$y}_title_control", array(
+            $wp_customize->add_control( "soptis_footer_column_{$i}_navbar_number_{$y}_title_control", array(
                 'label'    => "footer_column_{$i}_navbar_number_{$y}",
                 'section'  => "tema_footer_column_{$i}",
-                'settings' => "footer_column_{$i}_navbar_number_{$y}_title",
+                'settings' => "soptis_footer_column_{$i}_navbar_number_{$y}_title",
                 'type'     => 'text',
                 'active_callback' => function() use ( $i,$y ) { return show_navbar( $i, $y ); },
             ));
 
-            $wp_customize->add_setting( "footer_column_{$i}_navbar_number_{$y}_navbar_link", array(
+            $wp_customize->add_setting( "soptis_footer_column_{$i}_navbar_number_{$y}_navbar_link", array(
                 'default'           => '<li><a href="http://localhost/prova_sito/wordpress/sample-page/">Sample Page</a></li>',
                 'sanitize_callback' => 'wp_kses_post',
                 'transport'         => 'refresh',
             ) );
-            $wp_customize->add_control( "footer_column_{$i}_navbar_number_{$y}_navbar_link_control", array(
+            $wp_customize->add_control( "soptis_footer_column_{$i}_navbar_number_{$y}_navbar_link_control", array(
                 'label'    => "column {$i} navbar link",
                 'section'  => "tema_footer_column_{$i}",
-                'settings' => "footer_column_{$i}_navbar_number_{$y}_navbar_link",
+                'settings' => "soptis_footer_column_{$i}_navbar_number_{$y}_navbar_link",
                 'type'     => 'textarea',
                 'active_callback' => function() use ( $i,$y ) { return show_navbar( $i, $y ); },
             ) );
@@ -87,14 +87,14 @@
     }
 
     function show_navbar_container( $column ) { 
-        return get_theme_mod( "footer_column_{$column}_navbar", false ) === true; 
+        return get_theme_mod( "soptis_footer_column_{$column}_navbar", false ) === true; 
     }
 
     function show_navbar($column, $navbar){
 
-        $navbar_boolean = get_theme_mod( "footer_column_{$column}_navbar", false );
+        $navbar_boolean = get_theme_mod( "soptis_footer_column_{$column}_navbar", false );
 
-        $navbar_number = get_theme_mod( "footer_column_{$column}_navbar_number", 1 );
+        $navbar_number = get_theme_mod( "soptis_footer_column_{$column}_navbar_number", 1 );
 
 
         if($navbar_boolean===true && $navbar_number>=$navbar ){

@@ -1,6 +1,6 @@
 let aperto = false; 
 
-function toggleMenu() { 
+function soptis_toggleMenu() { 
     if (!aperto) { 
         apriMenu(); // prima funzione 
         aperto = true; 
@@ -11,7 +11,7 @@ function toggleMenu() {
     } 
 }
 
-function apriMenu() {
+function soptis_apriMenu() {
     const height = document.querySelector("#header").getBoundingClientRect().height;
     const mobileMenu = document.querySelector("#mobile_menu");
 
@@ -26,7 +26,7 @@ function apriMenu() {
     
 }
 
-function chiudiMenu(){
+function soptis_chiudiMenu(){
     const mobileMenu = document.querySelector("#mobile_menu"); 
     mobileMenu.classList.remove('mobile_menu_open');
     mobileMenu.classList.add('mobile_menu_close');

@@ -8,35 +8,35 @@
     ) );
 
 
-    $wp_customize->add_setting( 'heading_set', array(
+    $wp_customize->add_setting( 'soptis_header_heading', array(
         'default'           => false,
         'sanitize_callback' => 'rest_sanitize_boolean',
         'transport'         => 'refresh',
     ) );
-    $wp_customize->add_control( 'heading_set_control', array(
+    $wp_customize->add_control( 'soptis_header_heading_control', array(
         'label'    => 'header heading',
         'section'  => 'header_heading',
-        'settings' => 'heading_set',
-        'type'     => 'checkbox', 
+        'settings' => 'soptis_header_heading',
+        'type'     => 'checkbox',
     ) );
 
     
     $allowed_heading_align = array(
-        'start'  => 'start',
+        'flex-start'  => 'start',
         'center' => 'center',
-        'end'    => 'end',
+        'flex-end'    => 'end',
     );
-    $wp_customize->add_setting( 'header_heading_align', array(
+    $wp_customize->add_setting( 'soptis_header_heading_align', array(
         'default'           => 'start',
         'sanitize_callback' => function( $value ) use ( $allowed_heading_align ) {
             return array_key_exists( $value, $allowed_heading_align ) ? $value : 'start';
         },
         'transport' => 'refresh',
     ) );
-    $wp_customize->add_control( 'header_heading_align_control', array(
+    $wp_customize->add_control( 'soptis_header_heading_align_control', array(
         'label'    => 'header heading align',
         'section'  => 'header_heading',
-        'settings' => 'header_heading_align',
+        'settings' => 'soptis_header_heading_align',
         'type'     => 'select',
         'choices'  => $allowed_heading_align
     ) );
