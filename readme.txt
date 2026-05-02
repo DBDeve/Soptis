@@ -1,5 +1,5 @@
 === Soptis ===
-Contributors: Dario
+Contributors: Dario (DBDeve)
 Requires at least: 6.0
 Tested up to: 6.9.4
 Requires PHP: 8.3

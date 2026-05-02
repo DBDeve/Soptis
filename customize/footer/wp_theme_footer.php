@@ -107,7 +107,7 @@
                     echo '</div>';
                 }
 
-                $navbar_boolean = (bool) get_theme_mod("soptis_footer_column_{$i}_navbar", false);
+                $navbar_boolean = (bool) get_theme_mod("soptis_footer_column_{$i}_navbar", true);
                 if($navbar_boolean){
                     echo '<div class="navbar_container">';
                     

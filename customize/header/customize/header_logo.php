@@ -9,7 +9,7 @@
 
 
     $wp_customize->add_setting( 'soptis_header_logo', array(
-        'default'           => false,
+        'default'           => true,
         'sanitize_callback' => 'rest_sanitize_boolean',
         'transport'         => 'refresh',
     ) );

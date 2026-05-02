@@ -3,7 +3,7 @@
     for($i = 1; $i <= 4; $i++){
         ////////////////////////// NAVBAR CONTENT ///////////////////////////////
         $wp_customize->add_setting( "soptis_footer_column_{$i}_navbar", array(
-        'default'           => false,
+        'default'           => true,
         'sanitize_callback' => 'rest_sanitize_boolean',
         'transport'         => 'refresh',
         ));
@@ -87,7 +87,7 @@
     }
 
     function show_navbar_container( $column ) { 
-        return get_theme_mod( "soptis_footer_column_{$column}_navbar", false ) === true; 
+        return get_theme_mod( "soptis_footer_column_{$column}_navbar", false ) === true;
     }
 
     function show_navbar($column, $navbar){

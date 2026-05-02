@@ -9,7 +9,7 @@
 
 
     $wp_customize->add_setting( 'soptis_header_heading', array(
-        'default'           => false,
+        'default'           => true,
         'sanitize_callback' => 'rest_sanitize_boolean',
         'transport'         => 'refresh',
     ) );

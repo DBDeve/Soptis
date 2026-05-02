@@ -9,7 +9,7 @@
 
     
     $wp_customize->add_setting( 'soptis_header_social_icons', array( 
-        'default'           => false,
+        'default'           => true,
         'sanitize_callback' => 'rest_sanitize_boolean',
         'transport'         => 'refresh',
     ) );
@@ -44,11 +44,11 @@
         'choices'  => $allowed_justify_content
     ) );
 
-    $socials = array( 'facebook', 'twitter', 'instagram', 'linkedin', 'youtube' );
+    $socials = array( 'facebook', 'twitter', 'instagram' );
     foreach ( $socials as $handle ) {
         // checkbox setting
         $wp_customize->add_setting( "soptis_social_{$handle}_enable", array(
-        'default'           => '',
+        'default'           => true,
         'sanitize_callback' => 'rest_sanitize_boolean',
         'transport'         => 'refresh',
         ) );
@@ -62,7 +62,38 @@
 
         // url setting
         $wp_customize->add_setting( "soptis_social_{$handle}_url", array(
-        'default'           => '',
+        'default'           => '/',
+        'sanitize_callback' => 'esc_url_raw',
+        'transport'         => 'refresh',
+        ) );
+
+        $wp_customize->add_control( "soptis_social_{$handle}_url_control", array(
+        'label'    => ucfirst( $handle ) . ' URL',
+        'section'  => 'header_social_icons',
+        'settings' => "soptis_social_{$handle}_url",
+        'type'     => 'url',
+        ) );
+    }
+
+    $socials = array( 'linkedin', 'youtube' );
+    foreach ( $socials as $handle ) {
+        // checkbox setting
+        $wp_customize->add_setting( "soptis_social_{$handle}_enable", array(
+        'default'           => false,
+        'sanitize_callback' => 'rest_sanitize_boolean',
+        'transport'         => 'refresh',
+        ) );
+
+        $wp_customize->add_control( "soptis_social_{$handle}_enable_control", array(
+        'label'    => ucfirst( $handle ) . ' Enable',
+        'section'  => 'header_social_icons',
+        'settings' => "soptis_social_{$handle}_enable",
+        'type'     => 'checkbox',
+        ) );
+
+        // url setting
+        $wp_customize->add_setting( "soptis_social_{$handle}_url", array(
+        'default'           => '/',
         'sanitize_callback' => 'esc_url_raw',
         'transport'         => 'refresh',
         ) );

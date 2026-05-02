@@ -88,7 +88,7 @@
 
 
 
-        $social_enable = (bool) get_theme_mod( 'soptis_header_social_icons', false);
+        $social_enable = (bool) get_theme_mod( 'soptis_header_social_icons', true);
         if ($social_enable) {
 
             $social_icons_align_value_db = get_theme_mod( 'soptis_header_social_align', "center");
@@ -104,11 +104,26 @@
 
             echo '<div id="header_social_icons" '.$social_icons_style.'"> ';
 
-                $socials = array( 'facebook', 'twitter', 'instagram', 'linkedin', 'youtube' );
+                $socials = array( 'facebook', 'twitter', 'instagram' );
                 foreach ( $socials as $handle ) {
 
-                    $enabled = (bool) get_theme_mod("soptis_social_{$handle}_enable");
-                    $url     = get_theme_mod("soptis_social_{$handle}_url");
+                    $enabled = (bool) get_theme_mod("soptis_social_{$handle}_enable", true);
+                    $url     = get_theme_mod("soptis_social_{$handle}_url", "/");
+
+                    if ( $enabled && $url ) {
+                        echo "
+                        <a href='{$url}'>
+                            <i class='fab fa-{$handle}'></i>
+                            <span>{$handle}</span>
+                        </a>";
+                    }
+                }
+
+                $socials = array( 'linkedin', 'youtube' );
+                foreach ( $socials as $handle ) {
+
+                    $enabled = (bool) get_theme_mod("soptis_social_{$handle}_enable", false);
+                    $url     = get_theme_mod("soptis_social_{$handle}_url", "/");
 
                     if ( $enabled && $url ) {
                         echo "
@@ -125,7 +140,7 @@
         };
 
 
-        $site_icons_enable = (bool) get_theme_mod( 'soptis_header_logo', false);
+        $site_icons_enable = (bool) get_theme_mod( 'soptis_header_logo', true);
         if($site_icons_enable){
 
             $logo_align_value_bd = get_theme_mod( 'soptis_header_logo_align', "center");
