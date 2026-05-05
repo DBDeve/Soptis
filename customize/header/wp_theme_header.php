@@ -112,7 +112,7 @@
 
                     if ( $enabled && $url ) {
                         echo "
-                        <a href='{$url}'>
+                        <a href='".esc_url( home_url() )."{$url}'>
                             <i class='fab fa-{$handle}'></i>
                             <span>{$handle}</span>
                         </a>";
@@ -127,7 +127,7 @@
 
                     if ( $enabled && $url ) {
                         echo "
-                        <a href='{$url}'>
+                        <a href='".esc_url( home_url() )."{$url}'>
                             <i class='fab fa-{$handle}'></i>
                             <span>{$handle}</span>
                         </a>";
@@ -153,14 +153,13 @@
 
             $logo_style = 'style="'. $logo_align .' "';
 
-            echo '<a id="header_logo" '. $logo_style .'  href="/">';
+            echo '<a id="header_logo" '. $logo_style .'  href='.esc_url( home_url() ).' >';
 
                 if ( get_site_icon_url() ) {
                     echo '<img src="' . get_site_icon_url() . '" loading="eager" alt="icon site" width="64" height="32" title=" icon site">';
                 } else {
                     echo '<img src="' . esc_url( get_stylesheet_directory_uri() . '/image/deafult_Image.webp' ) . '" loading="eager" alt="icon site" width="64" height="32" title=" icon site">';
                 }
-                
 
             echo  '</a>';
 
