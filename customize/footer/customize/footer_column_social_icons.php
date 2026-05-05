@@ -2,17 +2,33 @@
     
     for( $i = 1; $i <= 4; $i++ ){
         /////////////////////////// SOCIAL ICONS ////////////////////////////////
-        $wp_customize->add_setting( "soptis_footer_column_{$i}_social_icons", array(
-            'default'           => false,
-            'sanitize_callback' => 'rest_sanitize_boolean',
-            'transport'         => 'refresh',
-        ));
-        $wp_customize->add_control( "soptis_footer_column_{$i}_social_icons_control", array(
-            'label'    => "column {$i} social icons",
-            'section'  => "tema_footer_column_{$i}",
-            'settings' => "soptis_footer_column_{$i}_social_icons",
-            'type'     => 'checkbox',
-        ) );
+
+        if($i === 2){
+            $wp_customize->add_setting( "soptis_footer_column_2_social_icons", array(
+                'default'           => true,
+                'sanitize_callback' => 'rest_sanitize_boolean',
+                'transport'         => 'refresh',
+            ));
+            $wp_customize->add_control( "soptis_footer_column_2_social_icons_control", array(
+                'label'    => "column 2 social icons",
+                'section'  => "tema_footer_column_2",
+                'settings' => "soptis_footer_column_2_social_icons",
+                'type'     => 'checkbox',
+            ) );
+        } else {
+            $wp_customize->add_setting( "soptis_footer_column_{$i}_social_icons", array(
+                'default'           => false,
+                'sanitize_callback' => 'rest_sanitize_boolean',
+                'transport'         => 'refresh',
+            ));
+            $wp_customize->add_control( "soptis_footer_column_{$i}_social_icons_control", array(
+                'label'    => "column {$i} social icons",
+                'section'  => "tema_footer_column_{$i}",
+                'settings' => "soptis_footer_column_{$i}_social_icons",
+                'type'     => 'checkbox',
+            ) );
+        }
+        
 
         $allowed_justify_content_footer_social_icons = array(
             'flex-start'  => 'start',
@@ -38,11 +54,11 @@
             'active_callback' => "show_social_{$i}",
         ) );
 
-        $socials = array( 'facebook', 'twitter', 'instagram', 'linkedin', 'youtube' );
+        $socials = array( 'facebook', 'twitter', 'instagram' );
         foreach ( $socials as $handle ) {
             // checkbox setting
             $wp_customize->add_setting( "soptis_footer_column_{$i}_social_{$handle}_enable", array(
-                'default'           => '',
+                'default'           => true,
                 'sanitize_callback' => 'rest_sanitize_boolean',
                 'transport'         => 'refresh',
             ) );
@@ -56,7 +72,38 @@
 
             // url setting
             $wp_customize->add_setting( "soptis_footer_column_{$i}_social_{$handle}_url", array(
-                'default'           => '',
+                'default'           => '/',
+                'sanitize_callback' => 'esc_url_raw',
+                'transport'         => 'refresh',
+            ) );
+            $wp_customize->add_control( "soptis_footer_column_{$i}_social_{$handle}_url_control", array(
+                'label'    => ucfirst( $handle ) . ' URL',
+                'section'  => "tema_footer_column_{$i}",
+                'settings' => "soptis_footer_column_{$i}_social_{$handle}_url",
+                'type'     => 'url',
+                'active_callback' => "show_social_{$i}",
+            ) );
+        }
+
+        $socials = array( 'linkedin', 'youtube' );
+        foreach ( $socials as $handle ) {
+            // checkbox setting
+            $wp_customize->add_setting( "soptis_footer_column_{$i}_social_{$handle}_enable", array(
+                'default'           => false,
+                'sanitize_callback' => 'rest_sanitize_boolean',
+                'transport'         => 'refresh',
+            ) );
+            $wp_customize->add_control( "soptis_footer_column_{$i}_social_{$handle}_enable_control", array(
+                'label'    => ucfirst( $handle ) . ' Enable',
+                'section'  => "tema_footer_column_{$i}",
+                'settings' => "soptis_footer_column_{$i}_social_{$handle}_enable",
+                'type'     => 'checkbox',
+                'active_callback' => "show_social_{$i}",
+            ) );
+
+            // url setting
+            $wp_customize->add_setting( "soptis_footer_column_{$i}_social_{$handle}_url", array(
+                'default'           => '/',
                 'sanitize_callback' => 'esc_url_raw',
                 'transport'         => 'refresh',
             ) );

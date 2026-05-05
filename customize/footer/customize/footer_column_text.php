@@ -2,17 +2,33 @@
 
     for ( $i = 1; $i <= 4; $i++ ) {
         //////////////////////// TEXT //////////////////////////////
-        $wp_customize->add_setting( "soptis_footer_column_{$i}_text_boolean", array(
-            'default'           => false,
-            'sanitize_callback' => 'rest_sanitize_boolean',
-            'transport'         => 'refresh',
-        ));
-        $wp_customize->add_control( "soptis_footer_column_{$i}_text_control", array(
-            'label'    => "column {$i} text",
-            'section'  => "tema_footer_column_{$i}",
-            'settings' => "soptis_footer_column_{$i}_text_boolean",
-            'type'     => 'checkbox',
-        ) );
+
+        if($i === 1){
+            $wp_customize->add_setting( "soptis_footer_column_1_text_boolean", array(
+                'default'           => true,
+                'sanitize_callback' => 'rest_sanitize_boolean',
+                'transport'         => 'refresh',
+            ));
+            $wp_customize->add_control( "soptis_footer_column_1_text_control", array(
+                'label'    => "column 1 text",
+                'section'  => "tema_footer_column_1",
+                'settings' => "soptis_footer_column_1_text_boolean",
+                'type'     => 'checkbox',
+            ) );
+        } else {
+            $wp_customize->add_setting( "soptis_footer_column_{$i}_text_boolean", array(
+                'default'           => false,
+                'sanitize_callback' => 'rest_sanitize_boolean',
+                'transport'         => 'refresh',
+            ));
+            $wp_customize->add_control( "soptis_footer_column_{$i}_text_control", array(
+                'label'    => "column {$i} text",
+                'section'  => "tema_footer_column_{$i}",
+                'settings' => "soptis_footer_column_{$i}_text_boolean",
+                'type'     => 'checkbox',
+            ) );
+        }
+        
 
         $allowed_justify_content_footer_text = array(
             'flex-start'  => 'start',

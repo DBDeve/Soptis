@@ -2,17 +2,32 @@
 
     for($i = 1; $i <= 4; $i++){
         ////////////////////////// NAVBAR CONTENT ///////////////////////////////
-        $wp_customize->add_setting( "soptis_footer_column_{$i}_navbar", array(
-        'default'           => true,
-        'sanitize_callback' => 'rest_sanitize_boolean',
-        'transport'         => 'refresh',
-        ));
-        $wp_customize->add_control( "soptis_footer_column_{$i}_navbar_control", array(
-            'label'    => "column {$i} navbar",
-            'section'  => "tema_footer_column_{$i}",
-            'settings' => "soptis_footer_column_{$i}_navbar",
-            'type'     => 'checkbox',
-        ) );
+
+        if($i === 3){
+            $wp_customize->add_setting( "soptis_footer_column_3_navbar", array(
+                'default'           => true,
+                'sanitize_callback' => 'rest_sanitize_boolean',
+                'transport'         => 'refresh',
+            ));
+            $wp_customize->add_control( "soptis_footer_column_3_navbar_control", array(
+                'label'    => "column 3 navbar",
+                'section'  => "tema_footer_column_3",
+                'settings' => "soptis_footer_column_3_navbar",
+                'type'     => 'checkbox',
+            ) );
+        } else {
+            $wp_customize->add_setting( "soptis_footer_column_{$i}_navbar", array(
+                'default'           => false,
+                'sanitize_callback' => 'rest_sanitize_boolean',
+                'transport'         => 'refresh',
+            ));
+            $wp_customize->add_control( "soptis_footer_column_{$i}_navbar_control", array(
+                'label'    => "column {$i} navbar",
+                'section'  => "tema_footer_column_{$i}",
+                'settings' => "soptis_footer_column_{$i}_navbar",
+                'type'     => 'checkbox',
+            ) );
+        }
 
         // numero navbar footer
         $wp_customize->add_setting( "soptis_footer_column_{$i}_navbar_number", array(
@@ -64,13 +79,13 @@
             $wp_customize->add_control( "soptis_footer_column_{$i}_navbar_number_{$y}_title_control", array(
                 'label'    => "footer_column_{$i}_navbar_number_{$y}",
                 'section'  => "tema_footer_column_{$i}",
-                'settings' => "soptis_footer_column_{$i}_navbar_number_{$y}_title",
+                'settings' => "soptis_footer_column_{$i}_navbar_number_{$y}_title", 
                 'type'     => 'text',
                 'active_callback' => function() use ( $i,$y ) { return show_navbar( $i, $y ); },
             ));
 
             $wp_customize->add_setting( "soptis_footer_column_{$i}_navbar_number_{$y}_navbar_link", array(
-                'default'           => '<li><a href="http://localhost/prova_sito/wordpress/sample-page/">Sample Page</a></li>',
+                'default'           => '<li><a href="<?php echo esc_url( home_url() ); ?>">Sample Page</a></li>',
                 'sanitize_callback' => 'wp_kses_post',
                 'transport'         => 'refresh',
             ) );

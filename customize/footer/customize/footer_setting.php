@@ -47,15 +47,15 @@
 
 
     // numero colonne footer
-    $wp_customize->add_setting( 'footer_content_number', array(
-        'default'           => 1,
+    $wp_customize->add_setting( 'soptis_footer_content_number', array(
+        'default'           => 4,
         'sanitize_callback' => 'absint',
         'transport'         => 'refresh',
     ));
     $wp_customize->add_control( 'footer_content_number_control', array(
         'label'       => 'Numero colonne footer',
         'section'     => 'tema_footer_section',
-        'settings'    => 'footer_content_number', // deve corrispondere allo setting
+        'settings'    => 'soptis_footer_content_number', // deve corrispondere allo setting
         'type'        => 'range',
         'input_attrs' => array(
             'min'  => 1,

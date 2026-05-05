@@ -3,17 +3,32 @@
     ///////////////////////// MAPS ///////////////////////////
     for ( $i = 1; $i <= 4; $i++ ) {
 
-        $wp_customize->add_setting( "soptis_footer_column_{$i}_maps", array(
-            'default'           => false,
-            'sanitize_callback' => 'rest_sanitize_boolean',
-            'transport'         => 'refresh',
-        ));
-        $wp_customize->add_control( "soptis_footer_column_{$i}_maps_control", array(
-            'label'    => "column {$i} maps",
-            'section'  => "tema_footer_column_{$i}",
-            'settings' => "soptis_footer_column_{$i}_maps",
-            'type'     => 'checkbox',
-        ) );
+        if($i === 4){
+            $wp_customize->add_setting( "soptis_footer_column_4_maps", array(
+                'default'           => true,
+                'sanitize_callback' => 'rest_sanitize_boolean',
+                'transport'         => 'refresh',
+            ));
+            $wp_customize->add_control( "soptis_footer_column_4_maps_control", array(
+                'label'    => "column 4 maps",
+                'section'  => "tema_footer_column_4",
+                'settings' => "soptis_footer_column_4_maps",
+                'type'     => 'checkbox',
+            ) );
+
+        } else {
+            $wp_customize->add_setting( "soptis_footer_column_{$i}_maps", array(
+                'default'           => false,
+                'sanitize_callback' => 'rest_sanitize_boolean',
+                'transport'         => 'refresh',
+            ));
+            $wp_customize->add_control( "soptis_footer_column_{$i}_maps_control", array(
+                'label'    => "column {$i} maps",
+                'section'  => "tema_footer_column_{$i}",
+                'settings' => "soptis_footer_column_{$i}_maps",
+                'type'     => 'checkbox',
+            ) );
+        }
 
         $allowed_justify_content_footer_maps = array(
             'flex-start'  => 'start',
