@@ -85,7 +85,7 @@
             ));
 
             $wp_customize->add_setting( "soptis_footer_column_{$i}_navbar_number_{$y}_navbar_link", array(
-                'default'           => '<li><a href="<?php echo esc_url( home_url() ); ?>">Sample Page</a></li>',
+                'default'           => '<li><a href="#">Sample Page</a></li>',
                 'sanitize_callback' => 'wp_kses_post',
                 'transport'         => 'refresh',
             ) );
