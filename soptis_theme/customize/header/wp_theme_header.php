@@ -76,11 +76,15 @@
             $heading_style = 'style="'. $heading_align .' "';
 
             $site_title = get_bloginfo("name");
-            if($site_title){
-                echo '<h1 id="header_heading" '.$heading_style.'> '. get_bloginfo("name") .' </h1>';
-            } else {
-                echo '<h1 id="header_heading" '.$heading_style.'> inserire titolo </h1>';
-            }
+            echo '<h1 id="header_heading" ' . $heading_style . '>';
+
+                if ( $site_title ) {
+                    echo esc_html( $site_title );
+                } else {
+                    echo esc_html__( 'Insert a title', 'soptis' );
+                }
+
+            echo '</h1>';
 
            
 

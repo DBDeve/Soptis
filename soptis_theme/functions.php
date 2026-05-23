@@ -76,4 +76,44 @@
     require_once SMI_INCLUDES . '/footer/wp_theme_footer.php';
     require_once SMI_INCLUDES . '/header/wp_theme_header.php';
 
+    function soptis_create_homepage_on_activation() {
+
+        // 1. Crea la pagina Home se non esiste
+        $home = get_page_by_title( 'Home' );
+
+        if ( ! $home ) {
+            $home_id = wp_insert_post( array(
+                'post_title'   => 'Home',
+                'post_content' => 'Benvenuto nel tuo nuovo sito!',
+                'post_status'  => 'publish',
+                'post_type'    => 'page'
+            ) );
+        } else {
+            $home_id = $home->ID;
+        }
+
+        // 2. Assegna il template custom alla pagina Home
+        update_post_meta( $home_id, '_wp_page_template', 'template-home.php' );
+
+        // 3. Crea la pagina Blog se non esiste
+        $blog = get_page_by_title( 'Blog' );
+
+        if ( ! $blog ) {
+            $blog_id = wp_insert_post( array(
+                'post_title'   => 'Blog',
+                'post_status'  => 'publish',
+                'post_type'    => 'page'
+            ) );
+        } else {
+            $blog_id = $blog->ID;
+        }
+
+        // 4. Imposta la homepage statica
+        update_option( 'show_on_front', 'page' );
+        update_option( 'page_on_front', $home_id );
+        update_option( 'page_for_posts', $blog_id );
+    }
+    add_action( 'after_switch_theme', 'soptis_create_homepage_on_activation' );
+
+
 ?>
