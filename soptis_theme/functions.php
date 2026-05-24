@@ -82,87 +82,13 @@
         $home = get_page_by_title( 'Home', OBJECT, 'page' );
 
         if ( ! $home || $home->post_status === 'trash' ) {
+
+            $image_url = esc_url( get_stylesheet_directory_uri() . '/image/profile.jpg' );
+            $background_image_url = esc_url( get_stylesheet_directory_uri() . '/image/background-image-default.jpg' );
+
             $home_id = wp_insert_post( array(
                 'post_title'   => 'Home',
-                'post_content' => '<!-- wp:cover {
-                        "url":"'.esc_url( get_stylesheet_directory_uri()).'/image/background-image-default.jpg",
-                        "id":8,
-                        "dimRatio":50,
-                        "customOverlayColor":"#28357b",
-                        "isUserOverlayColor":false,
-                        "sizeSlug":"full",
-                        "metadata":{
-                            "patternName":"hero sections",
-                            "name":"mio-blocco",
-                            "categories":["hero sections"]
-                        },
-                        "layout":{"type":"constrained"}
-                    } -->
-                    <div class="wp-block-cover">
-                        <img 
-                            class="wp-block-cover__image-background wp-image-8 size-full" 
-                            alt=""
-                            src="'.esc_url( get_stylesheet_directory_uri()).'/image/background-image-default.jpg"
-                            data-object-fit="cover"
-                        />
-                        <span 
-                            aria-hidden="true" 
-                            class="wp-block-cover__background has-background-dim" 
-                            style="background-color:#28357b">
-                        </span>
-
-                        <div class="wp-block-cover__inner-container">
-                            <!-- wp:columns -->
-                            <div class="wp-block-columns">
-
-                                <!-- wp:column {"verticalAlignment":"center"} -->
-                                <div class="wp-block-column is-vertically-aligned-center">
-                                    <!-- wp:image {"id":9,"sizeSlug":"full","linkDestination":"none","align":"center"} -->
-                                    <figure class="wp-block-image aligncenter size-full">
-                                        <img 
-                                            src="'.esc_url( get_stylesheet_directory_uri()).'/image/profile.jpg"
-                                            alt="hero section image"
-                                            title="hero section image"
-                                            class="wp-image-9"
-                                        />
-                                    </figure>
-                                    <!-- /wp:image -->
-                                </div>
-                                <!-- /wp:column -->
-
-                                <!-- wp:column -->
-                                <div class="wp-block-column">
-                                    <!-- wp:heading {"textAlign":"center","level":1,"font-size":"50px"} -->
-                                    <h1 class="wp-block-heading has-text-align-center">
-                                        chi sono
-                                    </h1>
-                                    <!-- /wp:heading -->
-
-                                    <!-- wp:paragraph {"align":"center","font-size":"35px"} -->
-                                    <p class="has-text-align-center">
-                                        Sviluppatore front-end orientato al web con i framework react e angular e i linguaggi HTML, CSS, javascript e Typescript.
-                                    </p>
-                                    <!-- /wp:paragraph -->
-
-                                    <!-- wp:paragraph {"align":"center","font-size":"35px"} -->
-                                    <p class="has-text-align-center">
-                                        Sviluppatore temi wordpress con liguaggio php.
-                                    </p>
-                                    <!-- /wp:paragraph -->
-
-                                    <!-- wp:paragraph {"align":"center","font-size":"35px"} -->
-                                    <p class="has-text-align-center">
-                                        sviluppatore back-end con framework Django e linguaggio Python e database di tipo relazionale.
-                                    </p>
-                                    <!-- /wp:paragraph -->
-                                </div>
-                                <!-- /wp:column -->
-
-                            </div>
-                            <!-- /wp:columns -->
-                        </div>
-                    </div>
-                    <!-- /wp:cover -->',
+                'post_content' =>  "<!-- wp:cover {\"overlayColor\":\"vivid-cyan-blue\",\"isUserOverlayColor\":true,\"layout\":{\"type\":\"constrained\"}} -->\n<div class=\"wp-block-cover\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-vivid-cyan-blue-background-color has-background-dim-100 has-background-dim\"></span><div class=\"wp-block-cover__inner-container\"><!-- wp:columns {\"verticalAlignment\":null} -->\n<div class=\"wp-block-columns\"><!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:image {\"id\":10,\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"align\":\"center\"} -->\n<figure class=\"wp-block-image aligncenter size-full\"><img src=\"$image_url\" alt=\"\" class=\"wp-image-10\"/></figure>\n<!-- /wp:image --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"verticalAlignment\":\"center\"} -->\n<div class=\"wp-block-column is-vertically-aligned-center\"><!-- wp:heading {\"level\":1,\"style\":{\"typography\":{\"textAlign\":\"center\",\"fontSize\":\"50px\"}}} -->\n<h1 class=\"wp-block-heading has-text-align-center\" style=\"font-size:50px\">Titolo di prova</h1>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"style\":{\"typography\":{\"textAlign\":\"center\",\"fontSize\":\"35px\"}}} -->\n<p class=\"has-text-align-center\" style=\"font-size:35px\">testo di prova</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"style\":{\"typography\":{\"textAlign\":\"center\",\"fontSize\":\"35px\"}}} -->\n<p class=\"has-text-align-center\" style=\"font-size:35px\">testo di prova</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph {\"style\":{\"typography\":{\"textAlign\":\"center\",\"fontSize\":\"35px\"}}} -->\n<p class=\"has-text-align-center\" style=\"font-size:35px\">testo di prova</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:group {\"layout\":{\"type\":\"flex\",\"flexWrap\":\"nowrap\",\"justifyContent\":\"center\"}} -->\n<div class=\"wp-block-group\"><!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\"}} -->\n<div class=\"wp-block-buttons\"><!-- wp:button {\"backgroundColor\":\"white\",\"textColor\":\"black\",\"style\":{\"typography\":{\"textAlign\":\"center\"},\"elements\":{\"link\":{\"color\":{\"text\":\"var:preset|color|black\"}}}}} -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link has-black-color has-white-background-color has-text-color has-background has-link-color has-text-align-center wp-element-button\"><strong>pulsante prova</strong></a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons -->\n\n<!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\"}} -->\n<div class=\"wp-block-buttons\"><!-- wp:button {\"backgroundColor\":\"white\",\"textColor\":\"black\",\"style\":{\"typography\":{\"textAlign\":\"center\"},\"elements\":{\"link\":{\"color\":{\"text\":\"var:preset|color|black\"}}}}} -->\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link has-black-color has-white-background-color has-text-color has-background has-link-color has-text-align-center wp-element-button\"><strong>pulsante prova</strong></a></div>\n<!-- /wp:button --></div>\n<!-- /wp:buttons --></div>\n<!-- /wp:group --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns --></div></div>\n<!-- /wp:cover -->",
                 'post_status'  => 'publish',
                 'post_type'    => 'page'
             ) );
