@@ -79,12 +79,90 @@
     function soptis_create_homepage_on_activation() {
 
         // 1. Crea la pagina Home se non esiste
-        $home = get_page_by_title( 'Home' );
+        $home = get_page_by_title( 'Home', OBJECT, 'page' );
 
-        if ( ! $home ) {
+        if ( ! $home || $home->post_status === 'trash' ) {
             $home_id = wp_insert_post( array(
                 'post_title'   => 'Home',
-                'post_content' => 'Benvenuto nel tuo nuovo sito!',
+                'post_content' => '<!-- wp:cover {
+                        "url":"'.esc_url( get_stylesheet_directory_uri()).'/image/background-image-default.jpg",
+                        "id":8,
+                        "dimRatio":50,
+                        "customOverlayColor":"#28357b",
+                        "isUserOverlayColor":false,
+                        "sizeSlug":"full",
+                        "metadata":{
+                            "patternName":"hero sections",
+                            "name":"mio-blocco",
+                            "categories":["hero sections"]
+                        },
+                        "layout":{"type":"constrained"}
+                    } -->
+                    <div class="wp-block-cover">
+                        <img 
+                            class="wp-block-cover__image-background wp-image-8 size-full" 
+                            alt=""
+                            src="'.esc_url( get_stylesheet_directory_uri()).'/image/background-image-default.jpg"
+                            data-object-fit="cover"
+                        />
+                        <span 
+                            aria-hidden="true" 
+                            class="wp-block-cover__background has-background-dim" 
+                            style="background-color:#28357b">
+                        </span>
+
+                        <div class="wp-block-cover__inner-container">
+                            <!-- wp:columns -->
+                            <div class="wp-block-columns">
+
+                                <!-- wp:column {"verticalAlignment":"center"} -->
+                                <div class="wp-block-column is-vertically-aligned-center">
+                                    <!-- wp:image {"id":9,"sizeSlug":"full","linkDestination":"none","align":"center"} -->
+                                    <figure class="wp-block-image aligncenter size-full">
+                                        <img 
+                                            src="'.esc_url( get_stylesheet_directory_uri()).'/image/profile.jpg"
+                                            alt="hero section image"
+                                            title="hero section image"
+                                            class="wp-image-9"
+                                        />
+                                    </figure>
+                                    <!-- /wp:image -->
+                                </div>
+                                <!-- /wp:column -->
+
+                                <!-- wp:column -->
+                                <div class="wp-block-column">
+                                    <!-- wp:heading {"textAlign":"center","level":1,"font-size":"50px"} -->
+                                    <h1 class="wp-block-heading has-text-align-center">
+                                        chi sono
+                                    </h1>
+                                    <!-- /wp:heading -->
+
+                                    <!-- wp:paragraph {"align":"center","font-size":"35px"} -->
+                                    <p class="has-text-align-center">
+                                        Sviluppatore front-end orientato al web con i framework react e angular e i linguaggi HTML, CSS, javascript e Typescript.
+                                    </p>
+                                    <!-- /wp:paragraph -->
+
+                                    <!-- wp:paragraph {"align":"center","font-size":"35px"} -->
+                                    <p class="has-text-align-center">
+                                        Sviluppatore temi wordpress con liguaggio php.
+                                    </p>
+                                    <!-- /wp:paragraph -->
+
+                                    <!-- wp:paragraph {"align":"center","font-size":"35px"} -->
+                                    <p class="has-text-align-center">
+                                        sviluppatore back-end con framework Django e linguaggio Python e database di tipo relazionale.
+                                    </p>
+                                    <!-- /wp:paragraph -->
+                                </div>
+                                <!-- /wp:column -->
+
+                            </div>
+                            <!-- /wp:columns -->
+                        </div>
+                    </div>
+                    <!-- /wp:cover -->',
                 'post_status'  => 'publish',
                 'post_type'    => 'page'
             ) );
