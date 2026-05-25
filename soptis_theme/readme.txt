@@ -11,8 +11,8 @@ Tags: custom-footer, custom-header, custom-head
 SEO-optimized theme for creating static websites.
 
 == Changelog ==
-= 1.0.0 =
-* Prima release.
+= 1.1.4 =
+* first release.
 
 == Credits ==
 Font, immagini, script e relative licenze.
