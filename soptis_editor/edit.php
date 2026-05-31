@@ -17,7 +17,7 @@
     add_action( 'enqueue_block_editor_assets', function() {
         wp_enqueue_style(
             'my-editor-style',
-            plugin_dir_url( __FILE__ ) . 'editor-style.css',
+            plugin_dir_url( __FILE__ ) . 'editor_style.css',
             array(), // dipendenze
             filemtime( plugin_dir_path( __FILE__ ) . 'editor_style.css' )
         );
