@@ -17,9 +17,9 @@
     add_action( 'enqueue_block_editor_assets', function() {
         wp_enqueue_style(
             'my-editor-style',
-            get_stylesheet_directory_uri() . '/soptis_plugin_editor/editor-style.css',
+            get_stylesheet_directory_uri() . '/soptis_editor/editor-style.css',
             array(), // dipendenze
-            filemtime( get_stylesheet_directory() . '/soptis_plugin_editor/editor-style.css' )
+            filemtime( get_stylesheet_directory() . '/soptis_editor/editor-style.css' )
         );
     });
 
