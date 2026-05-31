@@ -19,7 +19,7 @@
             'my-editor-style',
             plugin_dir_url( __FILE__ ) . 'editor-style.css',
             array(), // dipendenze
-            filemtime( plugin_dir_path( __FILE__ ) . 'editor-style.css' )
+            filemtime( plugin_dir_path( __FILE__ ) . 'editor_style.css' )
         );
     });
 
