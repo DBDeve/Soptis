@@ -3,7 +3,7 @@
     /*
     * Plugin Name:       Soptis_editor
     * Plugin URI:        https://github.com/DBDeve/Soptis
-    * Description:       This plugin modifies the wordpress editor.
+    * Description:       This plugin modifies the WordPress editor.
     * Version:           1.0.0
     * Requires at least: 5.2
     * Requires PHP:      7.2
