@@ -6,6 +6,11 @@
                 <?php echo esc_html__( 'Font Awesome', 'soptis' ); ?>
             </a>.
         </p>
+        <p class="theme_link">
+            <a href="https://github.com/DBDeve/Soptis" target="_blank" rel="noopener">
+                <?php echo esc_html__( '(created with Soptis theme)', 'soptis' ); ?>
+            </a>.
+        </p>
     </footer>
 
     <?php wp_footer(); ?>
