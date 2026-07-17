@@ -11,15 +11,17 @@ Tags: custom-footer, custom-header, custom-head
 SEO-optimized theme for creating static websites.
 
 == Changelog ==
-= 1.1.5 =
+= 1.1.6 =
 * first release.
 
 == Credits ==
 Fonts, images, scripts and their licenses.
 
 == License ==
-Soptis WordPress Theme, Copyright 2026 Dario (DBDeve)
-Soptis is distributed under the terms of the GNU General Public License v2 or later.
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+Copyright (c) 2026 Dario (DBDeve)
 
 This theme is free software: you can redistribute it and/or modify it under the terms of the GNU GPL as published by the Free Software Foundation, either version 2 of the License, or (at your option) any later version.
 
