@@ -1,4 +1,20 @@
 <?php
+
+/**
+ * Plugin Name: Soptis SEO
+ * Plugin URI: 
+ * Description: Modifies or adds metadata to pages.
+ * Version: 1.0.0
+ * Author: DBDeve (Dario)
+ * Author URI: 
+ * License: GPLv2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: soptis-seo
+ */
+
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+
 // Aggiunge il metabox
 function mio_plugin_aggiungi_metabox() {
     add_meta_box(
@@ -162,6 +178,22 @@ function mio_plugin_salva_metabox( $post_id ) {
     }
 }
 add_action( 'save_post', 'mio_plugin_salva_metabox' );
+
+
+/*add_action( 'wp_head', 'soptis_seo_output_meta_description' );
+function soptis_seo_output_meta_description() {
+
+    if ( ! is_singular() ) {
+        return; // solo su pagine e post singoli
+    }
+
+    $post_id = get_queried_object_id();
+    $description = get_post_meta( $post_id, '_meta_description', true );
+
+    if ( ! empty( $description ) ) {
+        echo '<meta name="description" content="' . esc_attr( $description ) . '">' . "\n";
+    }
+}*/
 
 
 add_action('admin_footer', function() {
