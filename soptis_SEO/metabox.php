@@ -4,7 +4,7 @@
  * Plugin Name: Soptis SEO
  * Plugin URI: 
  * Description: a plugin designed to allow users to edit web page metadata
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: DBDeve (Dario)
  * Author URI: 
  * License: GPLv2 or later

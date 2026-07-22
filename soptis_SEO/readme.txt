@@ -22,7 +22,7 @@ Modifies or adds metadata to pages.
 == Screenshots ==
 
 == Changelog ==
-= 1.0.0 =
+= 1.0.1 =
 * Initial release.
 
 == Upgrade Notice ==
