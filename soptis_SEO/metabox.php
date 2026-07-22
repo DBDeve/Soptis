@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Soptis SEO
  * Plugin URI: 
- * Description: Modifies or adds metadata to pages.
+ * Description: a plugin designed to allow users to edit web page metadata
  * Version: 1.0.0
  * Author: DBDeve (Dario)
  * Author URI: 
@@ -106,7 +106,7 @@ function mio_plugin_mostra_metabox( $post ) {
       <p><strong> PERSONAL TAG </strong></p>
       <p>
         <label for="personal_tag"><strong> personal tag </strong></label><br>
-        <textarea id="personal_tag" name="personal_tag" rows="3" style="width:100%;"><?php echo $personal_tag ; ?></textarea>
+        <textarea id="personal_tag" name="personal_tag" rows="3" style="width:100%;"><?php echo esc_textarea($personal_tag) ; ?></textarea>
       </p> 
 
 
@@ -171,7 +171,7 @@ function mio_plugin_salva_metabox( $post_id ) {
 
     
     if ( isset( $_POST['personal_tag'] ) ) {
-        $val = wp_unslash( $_POST['personal_tag'] );
+        $val = sanitize_text_field(wp_unslash( $_POST['personal_tag'] ) );
         update_post_meta( $post_id, '_meta_personal_tag', $val );
     } else {
         delete_post_meta( $post_id, '_meta_personal_tag' );
@@ -179,8 +179,25 @@ function mio_plugin_salva_metabox( $post_id ) {
 }
 add_action( 'save_post', 'mio_plugin_salva_metabox' );
 
+add_filter( 'pre_get_document_title', 'soptis_seo_custom_title' );
+function soptis_seo_custom_title( $title ) {
 
-/*add_action( 'wp_head', 'soptis_seo_output_meta_description' );
+    if ( ! is_singular() ) {
+        return $title;
+    }
+
+    $post_id = get_queried_object_id();
+    $title_seo = get_post_meta( $post_id, '_title_seo', true );
+
+    if ( ! empty( $title_seo ) ) {
+        return esc_html( $title_seo );
+    }
+
+    return $title;
+}
+
+
+add_action( 'wp_head', 'soptis_seo_output_meta_description' );
 function soptis_seo_output_meta_description() {
 
     if ( ! is_singular() ) {
@@ -193,77 +210,17 @@ function soptis_seo_output_meta_description() {
     if ( ! empty( $description ) ) {
         echo '<meta name="description" content="' . esc_attr( $description ) . '">' . "\n";
     }
-}*/
+}
 
 
-add_action('admin_footer', function() {
-    ?>
+add_action( 'wp_enqueue_scripts', 'soptis_plugin_scripts' );
+function soptis_plugin_scripts() {
 
-        <script>
-            jQuery(function($){
-
-                const min = 50;
-                const max = 155;
-
-                // Creo un elemento per mostrare il messaggio
-                let msg = $('<p id="descrizione_seo_msg" style="margin-top:5px;"></p>');
-                $('#descrizione_seo').after(msg);
-
-                $('#descrizione_seo').on('input', function(){
-
-                    let length = $(this).val().length;
-
-                    if (length < min) {
-                        msg.css('color', 'red');
-                        msg.text("La descrizione deve essere almeno di " + min + " caratteri (" + length + " attuali).");
-                    } 
-                    else if (length > max) {
-                        msg.css('color', 'red');
-                        msg.text("La descrizione non deve superare " + max + " caratteri (" + length + " attuali).");
-                    } 
-                    else {
-                        msg.css('color', 'green');
-                        msg.text("Lunghezza corretta (" + length + " caratteri).");
-                    }
-
-                });
-
-            });
-
-        </script>
-
-        <script>
-            jQuery(function($){
-
-                const min = 50;
-                const max = 65;
-
-                // Creo un elemento per mostrare il messaggio
-                let msg = $('<p id="descrizione_seo_msg" style="margin-top:5px;"></p>');
-                $('#title_seo').after(msg);
-
-                $('#title_seo').on('input', function(){
-
-                    let length = $(this).val().length;
-
-                    if (length < min) {
-                        msg.css('color', 'red');
-                        msg.text("il titolo deve essere almeno di " + min + " caratteri (" + length + " attuali).");
-                    } 
-                    else if (length > max) {
-                        msg.css('color', 'red');
-                        msg.text("il titolo non deve superare " + max + " caratteri (" + length + " attuali).");
-                    } 
-                    else {
-                        msg.css('color', 'green');
-                        msg.text("Lunghezza corretta (" + length + " caratteri).");
-                    }
-
-                });
-
-            });
-
-        </script>
-
-    <?php
-});
+    wp_enqueue_script(
+        'soptis-plugin-js',
+        plugins_url( 'js/metabox.js', __FILE__ ),
+        array('jquery'),
+        filemtime( plugin_dir_path(__FILE__) . 'js/metabox.js' ),
+        true
+    );
+}

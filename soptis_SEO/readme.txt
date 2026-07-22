@@ -1,5 +1,5 @@
 === Soptis SEO ===
-Contributors: DBDeve
+Contributors: DBDeve (Dario)
 Donate link:
 Tags: seo, meta, description, optimization
 Requires at least: 6.0
