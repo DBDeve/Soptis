@@ -76,29 +76,13 @@ function mio_plugin_mostra_metabox( $post ) {
             <label for="descrizione_seo"><strong>Description</strong></label><br>
             <textarea id="descrizione_seo" name="descrizione_seo" rows="3" style="width:100%;"><?php echo esc_textarea( $description ); ?></textarea>
         </p>
-        
-
-      <p>
-        <label for="author"><strong>Author</strong></label><br>
-        <input type="text" id="author" name="author" value="<?php echo esc_attr( $author ); ?>" style="width:100%;">
-      </p>
 
       <br>
       <p><strong>ROBOTS</strong></p>
       <fieldset>
         <legend>Index</legend>
-        <label><input type="radio" name="robots_index_value" value="true" <?php checked( $robots_raw, true ); ?> /> index</label>
-        <label><input type="radio" name="robots_index_value" value="false" <?php checked( $robots_raw, false ); ?> /> noindex</label>
-      </fieldset>
-
-
-      <br>
-      <p><strong> SOCIAL </strong></p>
-
-      <fieldset>
-        <legend> social type </legend>
-        <label><input type="radio" name="social_type_value" value="website" <?php checked( $og_type, 'website' ); ?> /> website</label>
-        <label><input type="radio" name="social_type_value" value="article" <?php checked( $og_type, 'article' ); ?> /> article</label>
+        <label><input type="radio" name="robots_value" value="true" <?php checked( $robots_raw, true ); ?> /> index</label>
+        <label><input type="radio" name="robots_value" value="false" <?php checked( $robots_raw, false ); ?> /> noindex</label>
       </fieldset>
 
       <br>
@@ -106,7 +90,7 @@ function mio_plugin_mostra_metabox( $post ) {
       <p><strong> PERSONAL TAG </strong></p>
       <p>
         <label for="personal_tag"><strong> personal tag </strong></label><br>
-        <textarea id="personal_tag" name="personal_tag" rows="3" style="width:100%;"><?php echo esc_textarea($personal_tag) ; ?></textarea>
+        <textarea id="personal_tag" name="personal_tag" rows="3" style="width:100%;"><?php echo esc_kses($personal_tag) ; ?></textarea>
       </p> 
 
 
@@ -152,23 +136,13 @@ function mio_plugin_salva_metabox( $post_id ) {
     } else {
         delete_post_meta( $post_id, '_meta_description' );
     }
-
-    // author
-    if ( isset( $_POST['author'] ) ) {
-        $val = sanitize_text_field( wp_unslash( $_POST['author'] ) );
-        update_post_meta( $post_id, '_meta_author', $val );
+    
+    if ( isset( $_POST['robots_value'] ) ) {
+        $val = wp_validate_boolean( wp_unslash( $_POST['robots_value'] ) );
+        update_post_meta( $post_id, '_meta_robots_value', $val );
     } else {
-        delete_post_meta( $post_id, '_meta_author' );
+        delete_post_meta( $post_id, '_meta_robots_value' );
     }
-
-    if ( isset( $_POST['social_type_value'] ) ) {
-        $val = sanitize_text_field( wp_unslash( $_POST['social_type_value'] ) );
-        update_post_meta( $post_id, '_meta_og_type', $val );
-        
-    } else {
-        delete_post_meta( $post_id, '_meta_og_type' );
-    }
-
     
     if ( isset( $_POST['personal_tag'] ) ) {
         $val = sanitize_text_field(wp_unslash( $_POST['personal_tag'] ) );
@@ -182,7 +156,7 @@ add_action( 'save_post', 'mio_plugin_salva_metabox' );
 add_filter( 'pre_get_document_title', 'soptis_seo_custom_title' );
 function soptis_seo_custom_title( $title ) {
 
-    if ( ! is_singular() ) {
+    if (is_front_page() || is_home()){
         return $title;
     }
 
@@ -196,6 +170,22 @@ function soptis_seo_custom_title( $title ) {
     return $title;
 }
 
+add_filter( 'wp_robots', 'soptis_custom_robots' );
+function soptis_custom_robots( $robots ) {
+
+    $post_id = get_queried_object_id();
+    $robots_tag = get_post_meta( $post_id, '_meta_robots_value', true );
+    if ( (! empty( $robots_tag  )) && $robots_tag===true ) {
+        $robots['index'] = true;
+        $robots['follow'] = true;
+    } else {
+        $robots['noindex'] = true;
+        $robots['nofollow'] = true;
+    }
+
+    return $robots;
+}
+
 
 add_action( 'wp_head', 'soptis_seo_output_meta_description' );
 function soptis_seo_output_meta_description() {
@@ -205,11 +195,23 @@ function soptis_seo_output_meta_description() {
     }
 
     $post_id = get_queried_object_id();
-    $description = get_post_meta( $post_id, '_meta_description', true );
 
+    $description = get_post_meta( $post_id, '_meta_description', true );
     if ( ! empty( $description ) ) {
         echo '<meta name="description" content="' . esc_attr( $description ) . '">' . "\n";
     }
+
+    $allowed_tags = [
+        'meta' => [
+            'name'     => true,
+            'content'  => true,
+        ],
+    ];
+    $personal_tag = get_post_meta( $post_id, '_meta_personal_tag', true );
+    if ( ! empty( $personal_tag ) ) {
+        echo wp_kses( $personal_tag, $allowed_tags ) . "\n";
+    }
+
 }
 
 
