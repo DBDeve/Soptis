@@ -17,9 +17,9 @@
 
         wp_register_script(
             'mytheme-custom-block',
-            get_template_directory_uri() . '/container/block.js',
+            plugin_dir_url(__FILE__) . 'container/block.js',
             array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-block-editor' ),
-            filemtime( get_template_directory() . '/container/block.js' ),
+            filemtime( plugin_dir_path(__FILE__) . 'container/block.js' ),
             array( 'strategy' => 'defer' )
         );
 
@@ -39,9 +39,9 @@
     function mytheme_register_block_hero() {
         wp_register_script(
             'mytheme-custom-block-hero',
-            get_template_directory_uri() . '/container/HeroSection.js',
+            plugin_dir_url(__FILE__) . 'container/HeroSection.js',
             array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-block-editor' ),
-            filemtime( get_template_directory() . '/container/HeroSection.js' ),
+            filemtime( plugin_dir_path(__FILE__) . 'container/HeroSection.js' ),
             array( 'strategy' => 'defer' )
         );
 
@@ -62,7 +62,7 @@
 
         wp_enqueue_style(
             'mio-editor-style',
-            get_template_directory_uri() . '/editor.css',
+            plugin_dir_url(__FILE__) . '/editor.css',
             [],
             filemtime( get_template_directory() . '/editor.css' )
         );
