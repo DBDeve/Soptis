@@ -4,6 +4,7 @@
 
   height: var( --hero-section-desktop-height,70vh);
   padding:  var(--hero-section-padding-top,30px) var(--hero-section-padding-right,30px) var(--hero-section-padding-bottom,30px) var(--hero-section-padding-left,30px);
+  margin:  var(--hero-section-margin-top,30px) var(--hero-section-margin-right,30px) var(--hero-section-margin-bottom,30px) var(--hero-section-margin-left,30px);
 
   background-color: var(--hero-background-color); --hero-background-color: 'transparent';
 

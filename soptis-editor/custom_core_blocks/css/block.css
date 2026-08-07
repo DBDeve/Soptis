@@ -1,0 +1,20 @@
+.block-margin{
+    margin-top: var(--block-margin-top) !important;
+    margin-bottom: var(--block-margin-bottom) !important;
+    margin-right: var(--block-margin-right) !important;
+    margin-left: var(--block-margin-left) !important;
+}
+
+.block-border{
+    border-width: var(--block-border-width) !important;
+    border-style: var(--block-border-style) !important;
+    border-color: var(--block-border-color) !important;
+    border-radius: var(--block-border-radius) !important;
+}
+
+.block-padding{
+    padding-top: var(--block-padding-top) !important;
+    padding-bottom: var(--block-padding-bottom) !important;
+    padding-right: var(--block-padding-right) !important;
+    padding-left: var(--block-padding-left) !important;
+}
