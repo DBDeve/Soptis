@@ -1,10 +1,8 @@
 const { registerBlockType } = wp.blocks;
 const { InspectorControls } = wp.blockEditor;
-const { PanelBody, TextControl } = wp.components;
-const { Fragment } = wp.element;
+const { TextControl } = wp.components;
 const { createElement: el } = wp.element;
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
-const { Button } = wp.components;
 
 
 

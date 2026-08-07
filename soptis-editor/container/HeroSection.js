@@ -1,7 +1,6 @@
 
 
 
-
 registerBlockType('tuo-tema/hero', {
     apiVersion: 3,
     title: 'hero section',

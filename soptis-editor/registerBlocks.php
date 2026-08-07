@@ -24,9 +24,10 @@
         );
 
         wp_register_style( 
-            'contenitore-editor-style', get_stylesheet_directory_uri() . '/css/container.css', 
+            'contenitore-editor-style', 
+            plugin_dir_url(__FILE__) . '/css/container.css', 
             array(), 
-            filemtime(get_stylesheet_directory() . '/css/container.css') 
+            filemtime(plugin_dir_url(__FILE__) . '/css/container.css') 
         );
 
         register_block_type( 'mytheme/custom-block', array(
@@ -46,9 +47,10 @@
         );
 
         wp_register_style( 
-            'contenitore-editor-style-hero', get_stylesheet_directory_uri() . '/css/HeroSection.css', 
+            'contenitore-editor-style-hero', 
+            plugin_dir_url(__FILE__) . '/css/HeroSection.css', 
             array(), 
-            filemtime(get_stylesheet_directory() . '/css/HeroSection.css') 
+            filemtime(plugin_dir_url(__FILE__) . '/css/HeroSection.css') 
         );
 
         register_block_type( 'mytheme/custom-block-hero', array(
@@ -64,9 +66,29 @@
             'mio-editor-style',
             plugin_dir_url(__FILE__) . '/editor.css',
             [],
-            filemtime( get_template_directory() . '/editor.css' )
+            filemtime( plugin_dir_path(__FILE__) . '/editor.css' )
         );
 
     });
+
+
+    add_action( 'wp_enqueue_scripts', function() {
+
+        wp_enqueue_style(
+            'container-style',
+            plugin_dir_url(__FILE__) . 'css/container.css',
+            [],
+            filemtime( plugin_dir_path(__FILE__) . 'css/container.css' )
+        );
+
+        wp_enqueue_style(
+            'HeroSection-style',
+            plugin_dir_url(__FILE__) . 'css/HeroSection.css',
+            [],
+            filemtime( plugin_dir_path(__FILE__) . 'css/HeroSection.css' )
+        );
+        
+    });
+
 
 ?>

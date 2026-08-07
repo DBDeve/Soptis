@@ -1,0 +1,30 @@
+#HeroSection{
+
+  position: relative;
+
+  height: var( --hero-section-desktop-height,70vh);
+  padding:  var(--hero-section-padding-top,30px) var(--hero-section-padding-right,30px) var(--hero-section-padding-bottom,30px) var(--hero-section-padding-left,30px);
+
+  background-color: var(--hero-background-color); --hero-background-color: 'transparent';
+
+  display: flex;
+  flex: var(--hero-container-flex); --hero-container-flex:1;
+  flex-wrap: var(--hero-container-flex-wrap); --hero-container-flex-wrap:wrap;
+  flex-direction: var(--hero-container-flex-direction);--hero-container-flex-direction:column;
+  align-items: var(--hero-container-align-items);
+  align-content: var(--hero-container-align-content);
+  justify-content: var(--hero-container-justify-content);
+  gap: var(--hero-container-gap);--hero-container-gap: 5px;
+  
+}
+
+#heroBackgroundImage { 
+  position: absolute;
+  filter: brightness(var(--hero-background-image-brightness,0.7)); /* oscura immagine*/
+  top: 0; 
+  left: 0; 
+  width: 100%;
+  height: 100%; 
+  object-fit: var(--hero-background-image-object-fit,cover); 
+  z-index: -1;
+}

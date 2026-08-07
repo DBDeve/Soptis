@@ -1,0 +1,51 @@
+/*custom container*/
+.BlockContainer{
+  position: relative;
+  
+  display: block;
+
+}
+
+.FlexContainer{
+
+  position: relative;
+
+  display: flex;
+  flex: var(--flex); --flex:1;
+  gap: var(--container-flex-gap); --container-flex-gap:10px;
+  flex-direction: var(--container-flex-direction); --container-flex-direction: row;
+  flex-wrap: var(--container-flex-wrap); --container-flex-wrap: wrap;
+  align-content: var(--container-align-content);
+  justify-content: var(--container-justify-content);
+  align-items: var(--container-align-items);
+
+}
+
+
+.layoutContainer{
+  
+  --container-margin-top:0px; --container-margin-right:0px; --container-margin-bottom:0px; --container-margin-left:0px;
+  margin: var(--container-margin-top) var(--container-margin-right) var(--container-margin-bottom) var(--container-margin-left);
+  --container-border-width:0px; --container-border-type:solid; --container-border-color:black;
+  border: var(--container-border-width) var(--container-border-type) var(--container-border-color);
+  --container-border-radius:0px;
+  border-radius: var(--container-border-radius);
+  --container-padding-top:0px; --container-padding-right:0px; --container-padding-bottom:0px; --container-padding-left:0px;
+  padding: var(--container-padding-top) var(--container-padding-right) var(--container-padding-bottom) var(--container-padding-left);
+
+
+  background-color: var(--container-background-color); --container-background-color: 'transparent';
+}
+
+
+.BackgroundImage { 
+  position: absolute;
+  filter: brightness(var(--container-background-brightness,0.7)); /* oscura immagine*/
+  top: 0; 
+  left: 0; 
+  width: 100%;
+  height: 100%; 
+  object-fit: var(--container-background-object-fit,cover);
+  z-index: -1;
+  /* manda l'immagine dietro */ 
+}
