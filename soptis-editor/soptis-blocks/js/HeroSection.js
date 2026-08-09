@@ -5,7 +5,7 @@ registerBlockType('tuo-tema/hero', {
     apiVersion: 3,
     title: 'hero section',
     icon: 'admin-generic',
-    category: 'container',
+    category: 'soptis-blocks',
 
     attributes: {
 

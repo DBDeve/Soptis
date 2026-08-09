@@ -10,7 +10,7 @@ registerBlockType('tuo-tema/contenitore', {
     apiVersion: 3,
     title: 'block container',
     icon: 'admin-generic',
-    category: 'container',
+    category: 'soptis-blocks',
 
     attributes: {
 

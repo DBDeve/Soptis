@@ -2,6 +2,20 @@
 
     if ( ! defined( 'ABSPATH' ) ) exit;
 
+    add_filter( 'block_categories_all', function( $categories ) {
+        return array_merge(
+            $categories,
+            [
+                [
+                    'slug'  => 'soptis-blocks',
+                    'title' => __( 'Soptis Blocks', 'soptis-editor' ),
+                    'icon'  => null,
+                ],
+            ]
+        );
+    });
+
+
     function mytheme_register_block() {
 
         wp_register_script(
