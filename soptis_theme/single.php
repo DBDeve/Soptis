@@ -18,6 +18,13 @@
             ?>
                 
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+                    <!-- IMMAGINE IN EVIDENZA: Aggiunta qui per risolvere l'avviso -->
+                    <?php if ( has_post_thumbnail() ) : ?>
+                        <div class="post-thumbnail">
+                            <?php the_post_thumbnail( 'large' ); ?>
+                        </div>
+                    <?php endif; ?>
                     
                     <header class="entry-header">
                         <!-- Titolo semplice senza link -->
@@ -60,6 +67,13 @@
 
             <?php 
             endwhile; 
+
+            // NAVIGAZIONE: Aggiunta qui per mostrare il link all'articolo precedente/successivo
+            the_posts_navigation( array(
+                'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Precedente:', 'soptis' ) . '</span> <span class="nav-title">%title</span>',
+                'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Successivo:', 'soptis' ) . '</span> <span class="nav-title">%title</span>',
+            ) );
+
         endif; 
         ?>
 

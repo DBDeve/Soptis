@@ -157,6 +157,8 @@
         
         // 7. Mantiene attivo il supporto agli stili dei blocchi (risolto nel passaggio precedente)
         add_theme_support( 'wp-block-styles' );
+
+        add_theme_support( 'post-thumbnails' );
     }
     add_action( 'after_setup_theme', 'mio_tema_setup_funzionalita' );
 
