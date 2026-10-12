@@ -71,6 +71,10 @@
     margin:0px;
 }
 
+#header #header_navbar i{
+  color: black;
+}
+
 /* desktop menu*/
 #header #header_navbar #desktop_menu{
     display: inline-flex;
