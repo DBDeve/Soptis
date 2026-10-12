@@ -39,7 +39,7 @@
 
         if ( (!empty( $items )) ) {
             echo '<nav id="header_navbar" '. $header_menu_style .'>';
-                echo '<button id="mobile_button" aria-label="mobile_button" onClick="toggleMenu()">
+                echo '<button id="mobile_button" aria-label="mobile_button" onClick="soptis_toggleMenu()">
                         <i class="fas fa-bars fa-2x"></i>
                     </button>';
                 echo '<ul id="desktop_menu">';

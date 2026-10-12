@@ -2,11 +2,11 @@ let aperto = false;
 
 function soptis_toggleMenu() { 
     if (!aperto) { 
-        apriMenu(); // prima funzione 
+        soptis_apriMenu(); // prima funzione 
         aperto = true; 
     } 
     else { 
-        chiudiMenu(); // seconda funzione 
+        soptis_chiudiMenu(); // seconda funzione 
         aperto = false; 
     } 
 }
