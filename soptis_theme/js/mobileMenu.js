@@ -15,7 +15,9 @@ function soptis_apriMenu() {
     const height = document.querySelector("#header").getBoundingClientRect().height;
     const mobileMenu = document.querySelector("#mobile_menu");
 
-    mobileMenu.style.setProperty('--height-mobile-menu', `${height}px`);
+    const a = height +46 //soluzione temporanea
+
+    mobileMenu.style.setProperty('--height-mobile-menu', `${a}px`);
     mobileMenu.classList.remove('mobile_menu_close');
     mobileMenu.classList.add('mobile_menu_open');
 
