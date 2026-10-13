@@ -198,6 +198,12 @@
     }
     add_action( 'widgets_init', 'il_tuo_tema_widgets_init' );
 
+    function mio_tema_carica_stili() {
+        // Carica il file style.css principale del tema
+        wp_enqueue_style( 'mio-tema-stile-principale', get_stylesheet_uri() );
+    }
+    add_action( 'wp_enqueue_scripts', 'mio_tema_carica_stili' );
+
 
 
 
