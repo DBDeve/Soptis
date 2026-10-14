@@ -88,13 +88,82 @@
      * Registra i block pattern del tema.
      */
     function mio_tema_register_block_patterns() {
+
         if ( function_exists( 'register_block_pattern' ) ) {
             register_block_pattern(
                 'mio-tema/test-pattern',
                 array(
                     'title'       => __( 'Pattern di Test', 'soptis' ),
                     'description' => __( 'Un pattern di esempio per il tema.', 'soptis' ),
-                    'content'     => '<!-- wp:paragraph --><p>Contenuto del pattern</p><!-- /wp:paragraph -->',
+                    'content'     => '
+                    <!-- wp:cover {
+                        "url":"'.esc_url( get_stylesheet_directory_uri()).'/image/background-image-default.webp",
+                        "id":8,
+                        "dimRatio":50,
+                        "customOverlayColor":"#28357b",
+                        "isUserOverlayColor":false,
+                        "sizeSlug":"full",
+                        "metadata":{
+                            "patternName":"hero sections",
+                            "name":"mio-blocco",
+                            "categories":["hero sections"]
+                        },
+                        "layout":{"type":"constrained"}
+                    } -->
+                    <div class="wp-block-cover">
+                        <img 
+                            class="wp-block-cover__image-background wp-image-8 size-full" 
+                            alt=""
+                            src="'.esc_url( get_stylesheet_directory_uri()).'/image/background-image-default.webp"
+                            data-object-fit="cover"
+                        />
+                        <span 
+                            aria-hidden="true" 
+                            class="wp-block-cover__background has-background-dim" 
+                            style="background-color:#28357b">
+                        </span>
+
+                        <div class="wp-block-cover__inner-container">
+                            <!-- wp:columns -->
+                            <div class="wp-block-columns">
+
+                                <!-- wp:column {"verticalAlignment":"center"} -->
+                                <div class="wp-block-column is-vertically-aligned-center">
+                                    <!-- wp:image {"id":9,"sizeSlug":"full","linkDestination":"none","align":"center"} -->
+                                    <figure class="wp-block-image aligncenter size-full">
+                                        <img 
+                                            src="'.esc_url( get_stylesheet_directory_uri()).'/image/profile.jpg"
+                                            alt="hero section image"
+                                            title="hero section image"
+                                            class="wp-image-9"
+                                        />
+                                    </figure>
+                                    <!-- /wp:image -->
+                                </div>
+                                <!-- /wp:column -->
+
+                                <!-- wp:column -->
+                                <div class="wp-block-column">
+                                    <!-- wp:heading {"textAlign":"center","level":1} -->
+                                    <h1 class="wp-block-heading has-text-align-center">
+                                        hero section title
+                                    </h1>
+                                    <!-- /wp:heading -->
+
+                                    <!-- wp:paragraph {"align":"center"} -->
+                                    <p class="has-text-align-center">
+                                        hero section paragraph
+                                    </p>
+                                    <!-- /wp:paragraph -->
+                                </div>
+                                <!-- /wp:column -->
+
+                            </div>
+                            <!-- /wp:columns -->
+                        </div>
+                    </div>
+                    <!-- /wp:cover -->
+                ',
                     'categories'  => array( 'text' ),
                 )
             );
