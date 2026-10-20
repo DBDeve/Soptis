@@ -1,0 +1,65 @@
+/*
+Theme Name: Soptis
+Theme URI: https://github.com/DBDeve/Soptis
+Author: Dario Bertonati (DBDeve)
+Author URI: https://it.linkedin.com/in/dbdeve
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Description: SEO-optimized theme for creating static websites.
+Version: 1.1.5
+Text Domain: Soptis
+Tags: blog, custom-background, custom-logo
+Tested up to: 7.1
+Requires PHP: 8.2
+Copyright: © 2026 Dario Bertonati (DBDeve)
+*/
+
+/* ==========================================================================
+   WordPress Core Alignment & Required Styles
+   ========================================================================== */
+
+/* Allineamento elementi (Immagini e blocchi) */
+.alignleft {
+    float: left;
+    margin: 0.5em 1.5em 0.5em 0;
+}
+.alignright {
+    float: right;
+    margin: 0.5em 0 0.5em 1.5em;
+}
+.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+}
+
+/* Didascalie delle immagini (Captions) */
+.wp-caption {
+    margin-bottom: 1.5em;
+    max-width: 100%;
+}
+.wp-caption-text {
+    font-size: 0.85em;
+    line-height: 1.5;
+    padding: 0.5em 0;
+    margin: 0;
+    text-align: center;
+}
+.gallery-caption {
+    font-size: 0.85em;
+    line-height: 1.5;
+    padding: 0.5em 0;
+    margin: 0;
+    text-align: center;
+}
+
+/* Post in evidenza (Sticky) */
+.sticky {
+    display: block;
+}
+
+/* Commenti scritti dall'autore del post */
+.bypostauthor {
+    display: block;
+}

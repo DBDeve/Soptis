@@ -1,0 +1,39 @@
+let aperto = false; 
+
+function soptis_toggleMenu() { 
+    if (!aperto) { 
+        soptis_apriMenu(); // prima funzione 
+        aperto = true; 
+    } 
+    else { 
+        soptis_chiudiMenu(); // seconda funzione 
+        aperto = false; 
+    } 
+}
+
+function soptis_apriMenu() {
+    const height = document.querySelector("#header").getBoundingClientRect().height;
+    const mobileMenu = document.querySelector("#mobile_menu");
+
+    const a = height +46 //soluzione temporanea
+
+    mobileMenu.style.setProperty('--height-mobile-menu', `${a}px`);
+    mobileMenu.classList.remove('mobile_menu_close');
+    mobileMenu.classList.add('mobile_menu_open');
+
+    
+    
+    const mobileButton = document.querySelector("#mobile_button");
+    mobileButton.innerHTML = "<i class=\"fas fa-times fa-2x\"></i>";
+    
+}
+
+function soptis_chiudiMenu(){
+    const mobileMenu = document.querySelector("#mobile_menu"); 
+    mobileMenu.classList.remove('mobile_menu_open');
+    mobileMenu.classList.add('mobile_menu_close');
+
+
+    const mobileButton = document.querySelector("#mobile_button");
+    mobileButton.innerHTML = "<i class=\"fas fa-bars fa-2x\"></i>";
+}
